@@ -1,0 +1,31 @@
+
+<section class="h-screen">
+    <div class="px-6 h-full ">
+    
+      <div
+        class="flex xl:justify-center lg:justify-center justify-center items-center  h-full g-6"
+      >
+      
+        <div
+          class="grow-0 shrink-1 md:shrink-0 basis-auto xl:w-6/12 lg:w-6/12 md:w-9/12 mb-12 md:mb-0" *ngIf="!isMobileorTabScreen"
+        >
+        <h1 class="title-font font-medium text-3xl ">Together we can make a difference !</h1>
+        <p class="leading-relaxed mt-4">Poke slow-carb mixtape knausgaard, typewriter street art gentrify hammock starladder roathse. Craies vegan tousled etsy austin.</p>
+      
+        <img
+            src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+            class="w-full"
+            
+            alt="Sample image"
+          />
+        </div>
+      
+        <div class="xl:ml-20 xl:w-5/12 lg:w-5/12 md:w-8/12 mb-12 md:mb-0">
+          
+            <router-outlet></router-outlet>
+          
+        
+        </div>
+      </div>
+    </div>
+  </section>

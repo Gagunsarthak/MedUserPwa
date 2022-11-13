@@ -1,0 +1,174 @@
+<section class=" py-1 bg-blueGray-50">
+<div class="w-full  px-4 mx-auto mt-6">
+  <div class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-100 border-0">
+    <div class="rounded-t  mb-0 px-6 py-6">
+      <div class="text-center flex justify-between">
+        <h2 class=" text-xl  ">
+          My account
+        </h2>
+        <div>
+          <button  *ngIf="profileForm.dirty" (click)="saveChanges()" class="mr-4 bg-purple-500 text-white active:bg-purple-600   uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150" type="button">
+            Save
+          </button>
+          <button  (click)="enableEditMode()" class="bg-purple-500 text-white active:bg-purple-600   uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150" type="button">
+            Edit
+          </button>
+
+        </div>
+     
+      </div>
+    </div>
+    <div class="flex-auto px-4 lg:px-10 py-10 pt-0">
+      <form [formGroup]="profileForm">
+        <h4 class=" text-base mt-3 mb-6   uppercase">
+          User Information 
+        </h4>
+        <div class="flex flex-wrap">
+            <div class="w-full lg:w-6/12 px-4">
+                <div class="relative w-full mb-3">
+                  <label class="block uppercase   text-xs   mb-2" htmlfor="grid-password">
+                    First Name :
+                  </label>
+                  <p class="font-medium text-lg" *ngIf="!editMode">{{first_name}}</p>
+                  <input type="text" formControlName="first_name" *ngIf="editMode" class="text-black border-0 px-3 py-3    rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" value="Lucky">
+                </div>
+              </div>
+              <div class="w-full lg:w-6/12 px-4">
+                <div class="relative w-full mb-3">
+                  <label class="block uppercase text-xs mb-2" htmlfor="grid-password">
+                    Last Name :
+                  </label>
+                  <p class="font-medium text-lg"  *ngIf="!editMode">{{last_name}}</p>
+                  <input type="text" formControlName="last_name" *ngIf="editMode" class="text-black border-0 px-3 py-3   rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" value="Jesse">
+                </div>
+              </div>
+          <div class="w-full lg:w-6/12 px-4">
+            <div class="relative w-full mb-3">
+              <label class="block uppercase text-xs mb-2" htmlfor="grid-password">
+                Date of birth :
+              </label>
+              <p class="font-medium text-lg"  *ngIf="!editMode">{{DOB}}</p>
+
+              <input type="date" *ngIf="editMode" formControlName="DOB" class="border-0 px-3 py-3 text-black   rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" value="lucky.jesse">
+            </div>
+          </div>
+          <div class="w-full lg:w-6/12 px-4">
+            <div class="relative w-full mb-3">
+              <label class="block uppercase   text-xs   mb-2" htmlfor="grid-password">
+                Email address :
+              </label>
+              <p class="font-medium text-lg"  *ngIf="!editMode">{{email}}</p>
+
+              <input type="email" *ngIf="editMode" formControlName="email" class="border-0 px-3 py-3 text-black  rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" value="jesse@example.com">
+            </div>
+          </div>
+          <div class="w-full lg:w-6/12 px-4">
+            <div class="relative w-full mb-3" formGroupName="medical_records">
+              <label class="block uppercase   text-xs   mb-2" htmlfor="grid-password">
+                Blood Group :
+              </label>
+              <p class="font-medium text-lg"  *ngIf="!editMode">{{blood_group}}</p>
+
+              <input type="text" *ngIf="editMode" formControlName="blood_group" class="border-0 px-3 py-3 text-black  rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" value="AB-">
+            </div>
+          </div>
+          <div class="w-full lg:w-6/12 px-4">
+            <div class="relative w-full mb-3">
+              <label class="block uppercase   text-xs   mb-2" htmlfor="grid-password">
+              Mobile :
+              </label>
+              <p class="font-medium text-lg"  *ngIf="!editMode">{{mobile}}</p>
+
+              <input type="tel" *ngIf="editMode" formControlName="mobile" class="border-0 px-3 py-3 text-black rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" value="Jesse">
+            </div>
+            
+          </div>
+        </div>
+
+        <!-- <hr class="mt-6 border-b-1 border-blueGray-300"> -->
+<mat-divider></mat-divider>
+        <h4 class="text-blueGray-400 text-base mt-3 mb-6   uppercase">
+          Contact Information
+        </h4>
+        <div class="flex flex-wrap">
+          <div class="w-full lg:w-12/12 px-4">
+            <div class="relative w-full mb-3">
+              <label class="block uppercase   text-xs   mb-2" htmlfor="grid-password">
+                Address :
+              </label>
+              <p class="font-medium text-lg"  *ngIf="!editMode">{{address}}</p>
+
+              <input type="text" *ngIf="editMode" formControlName="address" class="text-black border-0 px-3 py-3    rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" value="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09">
+            </div>
+          </div>
+          <div class="w-full lg:w-4/12 px-4">
+            <div class="relative w-full mb-3">
+              <label class="block uppercase   text-xs   mb-2" htmlfor="grid-password">
+                City :
+              </label>
+              <p class="font-medium text-lg"  *ngIf="!editMode">{{city}}</p>
+
+              <input type="text" *ngIf="editMode" formControlName="city" class="text-black border-0 px-3 py-3   rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" value="Bengaluru">
+            </div>
+          </div>
+          <div class="w-full lg:w-4/12 px-4">
+            <div class="relative w-full mb-3">
+              <label class="block uppercase   text-xs   mb-2" htmlfor="grid-password">
+                State :
+              </label>
+              <p class="font-medium text-lg"  *ngIf="!editMode">{{state}}</p>
+
+              <input type="text" *ngIf="editMode" formControlName="state" class="text-black border-0 px-3 py-3   rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" value="Karnataka">
+            </div>
+          </div>
+          <div class="w-full lg:w-4/12 px-4">
+            <div class="relative w-full mb-3">
+              <label class="block uppercase   text-xs   mb-2" htmlfor="grid-password">
+                Country :
+              </label>
+              <p class="font-medium text-lg"  *ngIf="!editMode">{{country}}</p>
+
+              <input type="text" *ngIf="editMode" formControlName="country" class="text-black border-0 px-3 py-3   rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" value="India">
+            </div>
+          </div>
+          <div class="w-full lg:w-4/12 px-4">
+            <div class="relative w-full mb-3">
+              <label class="block uppercase text-xs   mb-2" htmlfor="grid-password">
+                Postal Code :
+              </label>
+              <p class="font-medium text-lg"  *ngIf="!editMode">{{Zipcode}}</p>
+
+              <input type="text" *ngIf="editMode" formControlName="Zipcode" class=" text-black border-0 px-3 py-3    rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" value="Postal Code">
+            </div>
+          </div>
+        </div>
+
+        <!-- <hr class="mt-6 border-b-1 border-blueGray-300">
+
+        <h6 class="text-blueGray-400 text-sm mt-3 mb-6   uppercase">
+          About Me
+        </h6>
+        <div class="flex flex-wrap">
+          <div class="w-full lg:w-12/12 px-4">
+            <div class="relative w-full mb-3">
+              <label class="block uppercase   text-xs   mb-2" htmlfor="grid-password">
+                About me
+              </label>
+              <textarea type="text" class="border-0 px-3 py-3         rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" rows="4"> A beautiful UI Kit and Admin for JavaScript &amp; Tailwind CSS. It is Freeand Open Source.</textarea>
+            </div>
+          </div>
+        </div> -->
+      </form>
+    </div>
+    <!-- <div class="rounded-t  mb-0 px-6 py-6" *ngIf="editMode">
+      <div class="text-center flex justify-between flex-row-reverse">
+      
+        <button   (click)="saveChanges()" class="bg-purple-500 text-white active:bg-purple-600   uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150" type="button">
+          Save
+        </button>
+      </div>
+    </div> -->
+  </div>
+ 
+</div>
+</section>

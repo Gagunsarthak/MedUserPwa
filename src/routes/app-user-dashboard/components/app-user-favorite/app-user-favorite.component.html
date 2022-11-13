@@ -1,0 +1,83 @@
+<h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 ">My Favorites </h1>
+
+
+<div class="container my-12 mx-auto px-4 md:px-12">
+    <div class="flex flex-wrap -mx-1 lg:-mx-4" >
+
+        <!-- Column -->
+     
+        <div class="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/2" *ngFor="let fav of favoriteList">
+
+            <!-- Article -->
+            <div
+            class="  sm:w-full rounded-lg border border-gray-200 shadow-md ">
+            <a href="#">
+                <img class="rounded-t-lg px-2 py-2" src="{{fav.profImageUrl}}" alt="step3">
+                 </a>
+                <div class="p-5" style=" height: 235px; " class="overflow-auto">
+                    
+                    <div class="text-base font-bold   mt-1 mb-2" >Dr. {{fav.name}}</div>
+                    
+                    <a href="#">
+                        <h4 class="mb-2 text-2xl font-bold tracking-tight  ">{{fav.designation}}</h4>
+                    </a>
+                    <div class="flex flex-wrap items-center mt-1 text-base">
+                        <span class="flex items-center icon-color">
+                            <mat-icon>star</mat-icon>
+                        </span>                    
+                        <span class="ml-1">{{fav.averageRating}}</span>
+                        <span class="ml-1 mr-4">({{fav.associatedClinics[0].fees}})</span>
+                        <div class="flex items-center patients-label icon-color text-sm mt-1">
+                            <mat-icon>sentiment_very_satisfied</mat-icon>
+                            <span class="ml-1">{{fav.reviewTags[0].tagName}}</span>
+                            <mat-icon class="ml-2 text-gray-500">info</mat-icon>
+                        </div>
+               
+                    </div>
+                    <div class="flex items-center patients-label icon-color text-sm mt-1">
+                        <mat-icon>room</mat-icon>
+                        <span class="ml-1">{{fav.address}}</span>
+                    </div>
+                    <div class="flex items-center patients-label icon-color text-sm mt-1">
+                        <mat-icon>today</mat-icon>
+                        <span class="ml-1">Experience : {{fav.yearsOfExperience}} years</span>
+                    </div>
+                    <div class="flex items-center patients-label icon-color text-sm mt-1">
+                        <mat-icon> attach_money</mat-icon>
+                        <span class="ml-1">{{fav.associatedClinics[0].fees}}</span>
+                    </div>
+                    <!-- <button class="h-10 px-6 mt-2 w-full text-purple-700 transition-colors duration-150 border border-purple-500 rounded-lg focus:shadow-outline hover:bg-purple-500 hover:text-purple-100">View Profile</button>    
+                    <button class="w-full h-12 px-6 mt-2 transition-colors duration-150 bg-purple-700 rounded-lg focus:shadow-outline hover:bg-purple-800">Book</button> -->
+
+                </div>
+                <button class="h-10 px-6 mt-2 w-full text-purple-700 transition-colors duration-150 border border-purple-500 rounded-lg focus:shadow-outline hover:bg-purple-500 hover:text-purple-100">View Profile</button>    
+                <button class="w-full h-12 px-6 mt-2 transition-colors duration-150 bg-purple-700 rounded-lg focus:shadow-outline hover:bg-purple-800">Book</button>
+        </div>
+            <!-- END Article -->
+
+        </div>
+        <!-- END Column -->
+
+        <!-- Column -->
+     
+        <!-- END Column -->
+
+    </div>
+</div>
+timelineFetchStatus : {{timelineFetchStatus}}
+<div *ngIf="timelineFetchStatus === 'hasMore'"  class="text-center">
+    <button (click)="  fetchFavoriteId('subsequentCall')" type="button" class="w-4/6" mat-raised-button color="primary">
+      <mat-icon>add</mat-icon>&nbsp;
+      <ng-container>View More</ng-container>
+    </button>
+  </div>
+
+  <h2 class="text-center margin-top-m" i18n *ngIf="timelineFetchStatus === 'error'">
+    There was some error in fetching reviews. Please try again.
+  </h2>
+
+
+
+
+
+Responsive card design

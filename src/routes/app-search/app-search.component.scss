@@ -1,0 +1,18 @@
+.map {
+    top: 0;
+    width: 35vw;
+    height: 100%;
+    position: -webkit-sticky;
+    position: sticky;
+    
+}
+
+h2 {
+    margin: 0px;
+}
+
+.appt-type {
+    ::ng-deep .mat-tab-header {
+        border-bottom: none;
+    }
+}

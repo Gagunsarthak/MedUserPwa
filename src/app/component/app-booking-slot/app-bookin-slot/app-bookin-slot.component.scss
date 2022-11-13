@@ -1,0 +1,27 @@
+::ng-deep.mat-tab-label, ::ng-deep.mat-tab-label-active{
+    min-width: 0!important;
+    padding: 12px!important;
+    margin: 3px!important;
+   }
+   ::ng-deep.mat-tab-label .mat-tab-label-content {
+    flex-wrap: wrap!important;
+  }
+  
+  ::ng-deep.mat-tab-label .mat-tab-label-content span{
+    display: flex!important;
+    flex: 1 0 100%!important;
+    justify-content: center!important;
+  }
+
+  .slot-button{
+    margin: 1%;
+    border-radius: 10%;
+  }
+
+  .tab-body{
+    height: 250px;
+  }
+  .mat-button-toggle-checked {
+    background-color: #18e4c4;
+    color: rgba(255, 255, 255, 0.7);
+}

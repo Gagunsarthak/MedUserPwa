@@ -1,0 +1,31 @@
+.centre-content-vertically{
+    display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;  
+}
+/* Structure */
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+.mat-column-type{
+  width: 16%;
+}
+th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
+  padding: 4px;
+  border-bottom-width: 1px;
+  border-right-width: 1px;
+  border-right-style:solid ;
+  border-bottom-style: solid;
+  text-align: center;
+}
+
+th.mat-header-cell {
+  text-align: center;
+}
+//test css

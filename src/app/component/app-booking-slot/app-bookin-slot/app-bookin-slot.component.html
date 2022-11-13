@@ -1,0 +1,123 @@
+
+<section class="">
+<form [formGroup]="myForm" (ngSubmit)="createBooking(myForm)" >
+    <h2 class="sm:text-3xl text-2xl font-medium title-font mb-2 ">Book An Appointment</h2>
+      <div class="mb-2">
+          <label class="center-block ">Full Name:
+              <input
+              formControlName="fullName"
+              type="text"
+              class="form-control block w-full px-4 py-2 font-normal  bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+              id="exampleFormControlInput2"
+              placeholder="Full Name"
+            />
+  
+          </label>
+          <div *ngIf="myForm.controls['fullName'].invalid && (myForm.controls['fullName'].dirty || myForm.controls['fullName'].touched)" class="alert">
+              <div *ngIf="myForm.controls['fullName'].errors?.required">
+              Please enter full name
+            </div>
+          </div>
+        </div>
+        <div class="form-group form-check mr-6">
+            <input
+              type="checkbox"
+              class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
+              id="exampleCheck2"
+            />
+            <label class="form-check-label inline-block " for="exampleCheck2"
+              >I am booking for myself</label
+            >
+          </div>
+        <div class="mb-2 ">
+          <label class="center-block">Reason for your visit :
+            <mat-form-field appearance="fill" class="w-1/2" >
+                <mat-label>Choose an option</mat-label>
+                <mat-select formControlName="reasonForVisit" >
+                  <mat-option value="Annual Check up">Annual Check up</mat-option>
+                  <mat-option value="Annual Physical" >Annual Physical</mat-option>
+                  <mat-option value="Flu">Flu</mat-option>
+                  <mat-option value="General Consultation">General Consultation</mat-option>
+                  <mat-option value="Illness" >Illness</mat-option>
+                  <mat-option value="Annual Pap Smear/Gyn exam">Annual Pap Smear/Gyn exam </mat-option>
+                </mat-select>
+              </mat-form-field>
+  
+          </label>
+          <div *ngIf="myForm.controls['reasonForVisit'].invalid && (myForm.controls['reasonForVisit'].dirty || myForm.controls['reasonForVisit'].touched)" class="alert">
+              <div *ngIf="myForm.controls['reasonForVisit'].errors?.required">
+              Please enter your Email Id
+            </div>
+          </div>
+        </div>
+        <!-- Gender selection -->
+        <div class="mb-2">
+          <label class="center-block">Choose the type of Appointment :
+              <!-- <input
+              formControlName="gender"
+              type="text"
+              class="form-control block w-full px-4 py-2 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+              id="exampleFormControlInput100"
+              placeholder="Email ID"
+            /> -->
+           <div class="flex justify-center">
+           
+  
+            <section class="w-full">
+                
+              <mat-button-toggle-group  class="w-full" aria-label="Appointment type" formControlName="type" >
+                <mat-button-toggle class="w-1/2" value="in-person">In-Person</mat-button-toggle>
+                <mat-button-toggle  class="w-1/2" value="video">Video</mat-button-toggle>
+                <!-- <mat-button-toggle value="other">Other</mat-button-toggle> -->
+              </mat-button-toggle-group>
+            
+            </section>
+  </div>
+  
+          </label>
+          <!-- <div *ngIf="myForm.controls['email'].invalid && (myForm.controls['email'].dirty || myForm.controls['email'].touched)" class="alert">
+              <div *ngIf="myForm.controls['email'].errors?.required">
+              Please enter your Email Id
+            </div>
+          </div> -->
+        </div>
+          <!-- Date of Birth selection -->
+      
+        <!-- phone number -->
+      
+    <!-- New password -->
+   
+    
+ 
+<mat-tab-group class="mb-4 tab-body">
+    <mat-tab  *ngFor="let sched of scheduleDetails">
+        
+      <ng-template mat-tab-label>
+        <span class="tab-text uppercase">{{sched.day.substring(0,3)}}</span>
+        <span class="tab-number">{{sched.date|| "Sep 20"}}</span>
+       
+      </ng-template>
+      <p class="font-medium" *ngIf="sched.session1.length>0"> Morning Session</p>
+      <div class="flex flex-wrap w-full" *ngIf="sched.session1">
+       
+         <span *ngFor="let slot of sched.session1;let i=index" class="slot-button">
+                <a mat-stroked-button   class="slot-button  hover:shadow-lg  focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out "  [style.background-color]="slot.color" (click)="setSelectedSlot(slot,sched.day,sched.date,'session1',i)" target="_blank" >{{slot.slotTime}}</a>
+            </span>
+      </div>
+      <p class="font-medium"  *ngIf="sched.session2.length>0"> Evening Session</p>
+      <div class="flex flex-wrap w-full" *ngIf="sched.session2">
+       
+         
+                <a mat-stroked-button [style.background-color]="slot.color" class="slot-button hover:shadow-lg  focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out " (click)="setSelectedSlot(slot,sched.day,sched.date,'session2',i)" target="_blank"  *ngFor="let slot of sched.session2;let i=index">{{slot.slotTime}} </a>
+             
+      </div>
+      <div *ngIf="sched.session2.length==0 && sched.session1.length==0" class="text-center">
+        <h3 >No Slots available</h3>
+      </div>
+    </mat-tab>
+ 
+  </mat-tab-group>
+  myFormInvalid:: {{myForm.invalid}}
+  <button mat-raised-button type="submit" [disabled]="myForm.invalid"  class="w-full mt-6" color="primary">Book</button>
+</form>
+</section>

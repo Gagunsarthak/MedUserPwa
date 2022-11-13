@@ -1,0 +1,203 @@
+<p>profile-details-edit works!</p>
+
+<div class="flex justify-center ...">
+  <section class="text-gray-600 body-font">
+    <div class="container  mx-auto JU">
+      <mat-card class="flex container flex-wrap  ">
+
+
+        <div class="w-full mt-2 " *ngIf="dataReceived?.education">
+
+          <div class="flex justify-between">
+            <h3>EDUCATIONAL QUALIFICATIONS</h3>
+            <div class="example-button-row">
+              <button class="mr-3" (click)="openDialog('education','add')">
+                <mat-icon>add_circle_outline</mat-icon>
+              </button>
+              <!-- <button (click)="goToProductDetails('education')"> <mat-icon>create</mat-icon></button> -->
+
+
+            </div>
+
+          </div>
+          <ul class="" *ngFor="let qual of dataReceived.education; let i=index">
+
+            <li class="">
+              <div class="">
+                <div class=" text-black ">
+                  <div class="">
+  
+                    <div class="inline-flex items-center w-full ">
+                      <span class="inline-flex  rounded-full h-6 px-3 justify-center items-center "><i
+                          class='fas fa-award fa-lg'></i></span>
+  
+                      <div class="  cursor-pointer items-center gap-2  ml-2 rounded-lg  p-2">
+  
+                        <span> {{qual.degree}}-{{qual.studyField}}-{{qual.startDate}}</span>
+                        <div class=" text-xs font-normal">{{qual.institution}}</div>
+                        <div class=" text-xs font-normal">{{qual.description}}</div>
+                        <!-- <div class=" text-xs font-medium">{{exp.description}}</div> -->
+  
+                      </div>
+                      <!-- <div class="w-5 h-5 text-blue-500 sm:h-7 sm:w-7 row" viewBox="0 0 20 20" fill="currentColor"> -->
+  
+                      <!-- </div> -->
+                    </div>
+                    <div class="bottom">
+                      <div class="hold flex space-x-2  p-1">
+                        <div class=" rounded  text-base cursor-pointer border p-1 px-3  ml-auto " (click)="deleteItem('education',qual,i)">Delete</div>
+                        <div class="rounded  text-base cursor-pointer border  p-1 px-3 "
+                          (click)="editField('education',qual,i)">Edit</div>
+                      </div>
+                    </div>
+                  </div>
+  
+                </div>
+  
+  
+              </div>
+              <!-- <div class="flex bottom-1 items-center justify-between ">
+                <span class="inline-flex  rounded-full h-6 px-3 justify-center items-center ">
+                  <mat-icon>school</mat-icon>
+                </span>
+                <div class="  cursor-pointer items-center gap-2  ml-2 rounded-lg  p-2">
+
+
+                  <span> {{qual.degree}}-{{qual.studyField}}-{{qual.startDate}}</span>
+                  <div class=" text-xs font-normal">{{qual.institution}}</div>
+                  <div class=" text-xs font-normal">{{qual.description}}</div>
+
+                </div>
+
+
+                <div class="w-5 h-5 text-blue-500 sm:h-7 sm:w-7 row" viewBox="0 0 20 20" fill="currentColor">
+                  <button class="mr-3" (click)="editField('education',qual,i)">
+                    <mat-icon>delete</mat-icon>
+                  </button>
+                </div>
+
+              </div> -->
+
+
+
+            </li>
+
+            <!-- <li class="p-3">List Item 3</li>
+                  <li class="p-3">List Item 4</li> -->
+          </ul>
+        </div>
+        <!-- experience -->
+        <div class="w-full mt-2 " *ngIf="dataReceived?.experience">
+
+          <div class="flex justify-between">
+            <h3>EXPERIENCE</h3>
+            <div class="example-button-row">
+              <button class="mr-3" (click)="openDialog('experience','add')">
+                <mat-icon>add_circle_outline</mat-icon>
+              </button>
+              <!-- <button (click)="goToProductDetails('experience')"> <mat-icon>create</mat-icon></button> -->
+
+
+            </div>
+
+          </div>
+          <ul *ngFor="let exp of dataReceived.experience; let i = index">
+            <li class="border-b">
+
+
+              <div class=" text-black ">
+                <div class="">
+
+                  <div class="inline-flex items-center w-full ">
+                    <span class="inline-flex  rounded-full h-6 px-3 justify-center items-center "><i
+                        class='fas fa-clinic-medical'></i></span>
+                    <div class="  cursor-pointer items-center gap-2  ml-2 rounded-lg  p-2">
+
+                      <span>{{exp.title}}, {{exp.startDate}}-{{exp.endDate||'present'}}</span>
+                       <div class=" text-xs font-normal">{{exp.companyName}}</div>
+                      <div class=" text-xs font-medium">{{exp.description}}</div>
+
+                    </div>
+                    <!-- <div class="w-5 h-5 text-blue-500 sm:h-7 sm:w-7 row" viewBox="0 0 20 20" fill="currentColor"> -->
+
+                    <!-- </div> -->
+                  </div>
+                  <div class="bottom">
+                    <div class="hold flex space-x-2  p-1">
+                      <div class=" rounded  text-base cursor-pointer border p-1 px-3  ml-auto " (click)="deleteItem('experience',exp,i)">Delete</div>
+                      <div class="rounded  text-base cursor-pointer border  p-1 px-3 "
+                        (click)="editField('experience',exp,i)">Edit</div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+
+
+
+            </li>
+
+
+          </ul>
+        </div>
+
+
+
+      </mat-card>
+      <mat-card class="w-full mt-2 shadow" *ngIf="dataReceived?.awardsAndPublications">
+
+        <div class="flex justify-between">
+          <h3>AWARDS & PUBLICATIONS</h3>
+          <div class="example-button-row">
+            <button class="mr-3" (click)="openDialog('awards','add')">
+              <mat-icon>add_circle_outline</mat-icon>
+            </button>
+            <!-- <button (click)="goToProductDetails('awardsAndPublications')"> <mat-icon>create</mat-icon></button> -->
+
+
+          </div>
+
+        </div>
+        <ul class="" *ngFor="let award of dataReceived.awardsAndPublications; let i = index">
+          <li class="">
+            <div class="">
+              <div class="  ">
+                <div class="">
+
+                  <div class="inline-flex items-center w-full ">
+                    <span class="inline-flex  rounded-full h-6 px-3 justify-center items-center "><i
+                        class='fas fa-award fa-lg'></i></span>
+
+                    <div class="  cursor-pointer items-center gap-2  ml-2 rounded-lg  p-2">
+
+                      <span>{{award.awardName}}, {{award.date}}</span>
+                      <div class=" text-xs font-normal">{{award.place}}</div>
+                      <!-- <div class=" text-xs font-medium">{{exp.description}}</div> -->
+
+                    </div>
+                    <!-- <div class="w-5 h-5 text-blue-500 sm:h-7 sm:w-7 row" viewBox="0 0 20 20" fill="currentColor"> -->
+
+                    <!-- </div> -->
+                  </div>
+                  <div class="bottom">
+                    <div class="hold flex space-x-2  p-1">
+                      <div class=" rounded  text-base cursor-pointer border p-1 px-3  ml-auto " (click)="deleteItem('awards',award,i)">Delete</div>
+                      <div class="rounded  text-base cursor-pointer border  p-1 px-3 "
+                        (click)="editField('award',award,i)">Edit</div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+
+            </div>
+          </li>
+
+        </ul>
+      </mat-card>
+    </div>
+  </section>
+
+</div>

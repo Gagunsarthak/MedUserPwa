@@ -1,0 +1,106 @@
+
+<section class="  body-font relative">
+    <div class="container px-5 py-4 mx-auto">
+      <div class="flex flex-col text-center w-full ">
+        <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 ">Your past in-person visit with Dr. Subramanyam Swamy</h1>
+        <p class=" mx-auto leading-relaxed text-base">For your dermatology consultation on Mon, Apr 25 at 2:00 pm</p>
+      
+    </div>
+      <div class="lg:w-1/2 md:w-2/3 mx-auto">
+        <div>
+
+            <div class="sm:max-w-full max-w-md rounded overflow-hidden">
+              <div class="text-center p-6  border-b">
+                <img class="h-24 w-24 rounded-full mx-auto shadow-lg" src="https://randomuser.me/api/portraits/men/24.jpg" alt="Randy Robertson" />
+                <p class="pt-2 text-lg font-semibold">
+                  Dr Randy Robertson
+                </p>
+                <p class="text-sm  ">
+                  General Physician
+                </p>
+                <div class="mt-5">
+                  <a href="#" class=" py-2 px-4 text-xs font-semibold text-purple-600">Add to Favorites</a>
+                </div>
+              </div>
+              <div class="">
+                <!-- First list item -->
+                <span href="#" class="px-6 py-3   flex"> 
+                  <!-- <div class="w-8 h-8 bg-blue-700 rounded-full text-center align-middle text-white text-lg content-center">D</div> -->
+                  <div class="pl-3">
+                    <p class="text-sm font-semibold">
+                     Accurate Diagnosis
+                    </p>
+                    <p class="text-xs  ">
+                        <app-wid-star-rating  [rating]="0" [inputModeEnabled]="true" (ratingUpdated)="onRatingChanged($event,'accurateDiagnosisRating')" ></app-wid-star-rating>
+                    </p>
+                  </div>
+                </span>
+                <!-- Second list item -->
+                <span href="#" class="px-6 py-3   flex"> 
+                    <!-- <div class="w-8 h-8 bg-blue-700 rounded-full text-center align-middle text-white text-lg content-center">D</div> -->
+                    <div class="pl-3">
+                      <p class="text-sm font-semibold">
+                       Helps patients understand their condition
+                      </p>
+                      <p class="text-xs  ">
+                          <app-wid-star-rating  [rating]="0" [inputModeEnabled]="true" (ratingUpdated)="onRatingChanged($event,'patientEducationRating')" ></app-wid-star-rating>
+                      </p>
+                    </div>
+                  </span>
+                    <!-- Third list item -->
+                  <span href="#" class="px-6 py-3   flex"> 
+                    <!-- <div class="w-8 h-8 bg-blue-700 rounded-full text-center align-middle text-white text-lg content-center">D</div> -->
+                    <div class="pl-3">
+                      <p class="text-sm font-semibold">
+                       Friendliness of Doctor and wait-time
+                      </p>
+                      <p class="text-xs  ">
+                          <app-wid-star-rating  [rating]="0" [inputModeEnabled]="true" (ratingUpdated)="onRatingChanged($event,'friendlinessAndWaitTimeRating')"></app-wid-star-rating>
+                      </p>
+                    </div>
+                  </span>
+                       <!-- Fourth list item -->
+                       <span href="#" class="px-6 py-3   flex"> 
+                        <!-- <div class="w-8 h-8 bg-blue-700 rounded-full text-center align-middle text-white text-lg content-center">D</div> -->
+                        <div class="pl-3">
+                          <p class="text-sm font-semibold">
+                           Bedside Mannerism
+                          </p>
+                          <p class="text-xs  ">
+                              <app-wid-star-rating  [rating]="0" [inputModeEnabled]="true" (ratingUpdated)="onRatingChanged($event,'bedsideMannerismRating')"></app-wid-star-rating>
+                          </p>
+                        </div>
+                      </span>
+                        <!-- Fifth list item -->
+                        <span href="#" class="px-6 py-3   flex"> 
+                            <!-- <div class="w-8 h-8 bg-blue-700 rounded-full text-center align-middle text-white text-lg content-center">D</div> -->
+                            <div class="pl-3">
+                              <p class="text-sm font-semibold">
+                               Courteousness of Staff
+                              </p>
+                              <p class="text-xs  ">
+                                  <app-wid-star-rating  [rating]="0" [inputModeEnabled]="true" (ratingUpdated)="onRatingChanged($event,'staffCourteousnessRating')" ></app-wid-star-rating>
+                              </p>
+                            </div>
+                          </span>
+                          <div class="p-2 w-full">
+                            <div class="relative">
+                              <label for="message" class="leading-7 text-sm font-semibold">Describe your experience</label>
+                              <textarea id="message" name="message"  [(ngModel)] = 'reviewCreateReq.reviewMessage' class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
+                            </div>
+                          </div>
+              </div>
+              <div class="">
+                <!-- First list item -->
+                <div class="p-2 w-full">
+                    <!-- [disabled]="! (reviewCreateReq.accurateDiagnosisRating>0 && reviewCreateReq.friendlinessAndWaitTimeRating>0 && reviewCreateReq.bedsideMannerismRating>0 && reviewCreateReq.staffCourteousnessRating>0 && reviewCreateReq.patientEducationRating>0)" -->
+                    <button  class="flex mx-auto text-white bg-purple-500 border-0 py-2 px-8 focus:outline-none disabled:opacity-75  rounded text-lg" (click)="submitFeedBack()" [disabled]="! (reviewCreateReq.accurateDiagnosisRating>0 && reviewCreateReq.friendlinessAndWaitTimeRating>0 && reviewCreateReq.bedsideMannerismRating>0 && reviewCreateReq.staffCourteousnessRating>0 && reviewCreateReq.patientEducationRating>0 && reviewCreateReq.reviewMessage.length>0)">Submit</button>
+                  </div>
+              </div>
+            
+            </div>
+          </div>
+        
+      </div>
+    </div>
+  </section>

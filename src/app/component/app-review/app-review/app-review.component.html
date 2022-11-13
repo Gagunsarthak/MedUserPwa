@@ -1,0 +1,224 @@
+<section class=" body-font">
+  <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 ">What Patients Are Saying</h1>
+  <div class="container flex flex-wrap mx-auto items-center">
+     
+    <div class="w-1/2 md:pr-12 md:py-8 md:border-r md:border-b-0  md:mb-0 ">
+   
+    <!-- <div class="w-20 h-20 rounded-full inline-flex items-center justify-center ">
+      <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10" viewBox="0 0 24 24">
+        <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
+        <circle cx="12" cy="7" r="4"></circle>
+      </svg>
+    </div> -->
+    <div class="flex flex-col items-center text-center justify-center">
+      <h2 class="font-medium title-font mt-4 text-lg">Overall Rating</h2>
+      <div class="w-12 text-4xl rounded text-center mb-4">{{overAllRating}}</div>
+      <div class="flex justify-center items-center">
+          <div class="flex items-center mt-2 mb-4">
+            <app-wid-star-rating  [rating]="overAllRating"  ></app-wid-star-rating>
+          </div>
+        </div>
+      <p class="text-base ">{{hits}} reviews</p>
+    </div>
+    
+    </div>
+    <div class="flex flex-col w-1/2 md:pl-12">
+      <!-- <h2 class="title-font  tracking-wider text-sm">Awards</h2> -->
+      <nav class="list-none -mb-1">
+        <li class="">
+
+          <div class="p-2">
+              <div class="inline-flex items-center ">
+                <span class="inline-flex bg-green-600 text-white rounded-full h-6 px-3 justify-center items-center "><mat-icon> stars </mat-icon></span>
+                <div class="  cursor-pointer items-center gap-2  ml-2 rounded-lg  p-2">
+            
+                  <span> Highly Recommended</span>
+                 
+              </div>
+              </div>
+              <div class=" text-xs">93% of the patients rated this doctor 5 stars</div>
+            </div>
+          
+        </li>
+        <li class="">
+
+          <div class="p-2">
+              <div class="inline-flex items-center ">
+                <span class="inline-flex bg-purple-600 text-white rounded-full h-6 px-3 justify-center items-center "><mat-icon> access_time </mat-icon></span>
+                <div class="  cursor-pointer items-center gap-2  ml-2 rounded-lg  p-2">
+            
+                  <span>Excellent wait time</span>
+                 
+              </div>
+              </div>
+              <div class=" text-xs">96% of the patients waited less than 30 minutes</div>
+            </div>
+          
+        </li>
+        <li class="">
+          <div class="p-2">
+              <div class="inline-flex items-center ">
+                <span class="inline-flex bg-red-600  rounded-full h-6 px-3 justify-center items-center"><mat-icon> whatshot </mat-icon></span>
+                <div class="  cursor-pointer items-center gap-2  ml-2 rounded-lg  p-2">
+            
+                  <span> Highly Recommended</span>
+                 
+              </div>
+              </div>
+              <div class=" text-xs">93% of the patients rated this doctor 5 stars</div>
+            </div>
+          
+        </li>
+      </nav>
+    </div>
+  </div>
+</section>
+<h2 class="sm:text-3xl text-2xl font-medium title-font mb-2 ">PATIENT REVIEWS</h2>
+
+
+
+
+<div class="flex flex-wrap ">
+<div class="w-1/3 mb-4  ">
+<div class=" md:py-0">
+<!-- <h2 class="text-2xl font-bold text-purple-400">
+Example Clinic
+</h2> -->
+<div class="flex flex-col items-center"  >
+<div>  <span class=" title-font font-semibold"> Overall Rating</span></div>
+<div class="flex justify-center items-center">
+<div class="flex items-center mt-1 mb-1">
+  <app-wid-star-rating  [rating]="overAllRating"  ></app-wid-star-rating>
+
+</div>
+
+</div>  
+<div>{{overAllRating}}</div>
+
+</div>
+
+
+
+
+</div>
+</div>
+<div class="w-1/3 mb-4  h-12">
+<div class=" md:py-0">
+<!-- <h2 class="text-2xl font-bold text-purple-400">
+Example Clinic
+</h2> -->
+<div class="flex flex-col items-center"  >
+<div>  <span class=" title-font font-semibold"> Wait-time</span></div>
+
+<div class="flex justify-center items-center" *ngIf="!isMobileOrTabView">
+<div class="flex items-center mt-1 mb-1">
+  <app-wid-star-rating  [rating]="avgFriendlinessAndWaitTimeRating"  ></app-wid-star-rating>
+
+</div>
+
+</div>   
+<p class="text-base ">{{avgFriendlinessAndWaitTimeRating}}</p>
+</div>
+
+
+
+
+</div>
+</div>
+<div class="w-1/3 mb-4  h-12">
+<div class=" md:py-0">
+<!-- <h2 class="text-2xl font-bold text-purple-400">
+Example Clinic
+</h2> -->
+<div class="flex flex-col items-center"  >
+<div>  <span class=" title-font font-semibold"> Bed-side Manner</span></div>
+<div class="flex justify-center items-center" *ngIf="!isMobileOrTabView">
+<div class="flex items-center mt-1 mb-1">
+  <app-wid-star-rating  [rating]="avgBedsideMannerismRating"  ></app-wid-star-rating>
+
+</div>
+
+</div>   
+<p class="text-base ">{{avgBedsideMannerismRating}}</p>
+</div>
+
+
+
+
+</div>
+</div>
+
+</div>
+<h2 class="sm:text-3xl text-2xl font-medium title-font mb-2 ">Reviews ({{hits}})</h2>
+ <div class="container">
+  <span class="text-left">
+   
+      <button mat-button [matMenuTriggerFor]="menu">
+        <span *ngIf="sortFieldActive">sort by : {{sortFieldActive}}</span>
+        <span *ngIf="!sortFieldActive">Sort by</span>
+      </button>
+      <mat-menu #menu="matMenu"  >
+     
+        <button mat-menu-item *ngFor="let option of sortList" (click)="sortData(option)">{{option}}</button>
+        <!-- <button mat-menu-item>Item 2</button> -->
+      </mat-menu>
+   
+  </span>
+
+
+  <span class="text-right">
+  
+      <button mat-button [matMenuTriggerFor]="menu2">
+        <span *ngIf="orderTypeActive">Ordered by : {{orderTypeActive}}</span>
+        <span *ngIf="!orderTypeActive">Ordered by</span>
+      </button>
+      <mat-menu #menu2="matMenu"  >
+     
+        <button mat-menu-item *ngFor="let order of orderList" (click)="changeOrder()">{{order}}</button>
+        <!-- <button mat-menu-item>Item 2</button> -->
+      </mat-menu>
+      
+  </span>
+
+
+</div>
+
+
+<mat-card class="shadow-lg mb-2" *ngFor="let review of reviewFetched" >
+    <div class="flex flex-col max-w-full rounded-lg  overflow-hidden md:flex-row my-10">
+        <div class="md:flex items-center  w-full ">
+      
+          
+          <div class=" md:py-0">
+            <div class="flex items-center mt-2 mb-1" >
+              <app-wid-star-rating  [rating]="review.reviewRating"  ></app-wid-star-rating>
+             
+             
+          </div>
+  
+            <p class="mt-1">
+             {{review.reviewMessage}}</p>
+             
+              <div class=" flex flex-wrap mt-2 ">
+                <span class="mr-4">{{review.reviewDate | date}}</span>
+                <span class="mr-4">{{review.userName}}</span>
+                <span class="mr-4 text-purple-400" *ngIf="review.isVerifiedUser">Verified Patient</span>
+              </div>
+          </div>
+          
+    
+        </div>
+      
+      </div>
+  </mat-card>
+ 
+  <div *ngIf="timelineFetchStatus === 'hasMore'" class="text-center">
+    <button (click)="  fetchReviews('subsequentCall')" type="button" class="w-4/6" mat-raised-button color="primary">
+      <mat-icon>add</mat-icon>&nbsp;
+      <ng-container>View More</ng-container>
+    </button>
+  </div>
+
+  <h2 class="text-center margin-top-m" i18n *ngIf="timelineFetchStatus === 'error'">
+    There was some error in fetching reviews. Please try again.
+  </h2>

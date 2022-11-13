@@ -1,0 +1,41 @@
+<div class="flex flex-row">
+    <div>
+        <mat-tab-group class="appt-type">
+            <mat-tab label="All appointments"> 
+                <ng-container [ngTemplateOutlet]="searchContainer"></ng-container>
+            </mat-tab>
+            <mat-tab label="In-person">
+                <ng-container [ngTemplateOutlet]="searchContainer"></ng-container>
+            </mat-tab>
+            <mat-tab label="Video visit">
+                <ng-container [ngTemplateOutlet]="searchContainer"></ng-container>
+            </mat-tab>
+        </mat-tab-group>
+        
+    </div>
+    <div class="flex justify-center map">
+        <app-map class="w-full"></app-map>
+    </div>
+</div>
+<ng-template #searchContainer>
+    <app-filters></app-filters>
+    <div>
+        <div class="flex flex-row justify-between grow mb-2 mx-4">
+            <span class="text-3xl font-medium">842 providers</span>
+            <div class="flex flex-row justify-center">
+                <span class="flex items-center text-base font-semibold">Today, Jun 25 - Friday, Jul 8</span>
+                <div  class="flex flex-row justify-center ml-2">
+                    <button mat-icon-button aria-label="preview appointments">
+                        <mat-icon>navigate_before</mat-icon>
+                    </button>
+                    <button mat-icon-button class="ml-2" aria-label="upcoming appointments">
+                        <mat-icon>navigate_next</mat-icon>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div>
+            <app-doctor-search-card *ngFor="let doc of docList" [doc]="doc"></app-doctor-search-card>
+        </div>
+    </div>
+</ng-template>

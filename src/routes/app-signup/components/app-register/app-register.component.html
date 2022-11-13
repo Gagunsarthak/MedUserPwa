@@ -1,0 +1,212 @@
+<section class="h-screen">
+
+
+<form [formGroup]="myForm" >
+  <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 ">Sign Up</h1>
+    <div class="mb-2">
+        <label class="center-block ">Full Name:
+            <input
+            formControlName="fullName"
+            type="text"
+            class="form-control block w-full px-4 py-2 font-normal  bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+            id="exampleFormControlInput2"
+            placeholder="Full Name"
+          />
+
+        </label>
+        <div *ngIf="myForm.controls['fullName'].invalid && (myForm.controls['fullName'].dirty || myForm.controls['fullName'].touched)" class="alert">
+            <div *ngIf="myForm.controls['fullName'].errors?.required">
+            Please enter full name
+          </div>
+        </div>
+      </div>
+      <div class="mb-2">
+        <label class="center-block">Email:
+            <input
+            formControlName="email"
+            type="text"
+            class="form-control block w-full px-4 py-2 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+            id="exampleFormControlInput10"
+            placeholder="Email ID"
+          />
+
+        </label>
+        <div *ngIf="myForm.controls['email'].invalid && (myForm.controls['email'].dirty || myForm.controls['email'].touched)" class="alert">
+            <div *ngIf="myForm.controls['email'].errors?.required">
+            Please enter your Email Id
+          </div>
+        </div>
+      </div>
+      <!-- Gender selection -->
+      <div class="mb-2">
+        <label class="center-block">Gender:
+            <!-- <input
+            formControlName="gender"
+            type="text"
+            class="form-control block w-full px-4 py-2 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+            id="exampleFormControlInput100"
+            placeholder="Email ID"
+          /> -->
+         <div class="flex justify-center">
+         
+
+          <section>
+           
+            <mat-button-toggle-group  aria-label="Gender" formControlName="gender" >
+              <mat-button-toggle value="male">Male</mat-button-toggle>
+              <mat-button-toggle value="female">Female</mat-button-toggle>
+              <mat-button-toggle value="other">Other</mat-button-toggle>
+            </mat-button-toggle-group>
+          
+          </section>
+</div>
+
+        </label>
+        <div *ngIf="myForm.controls['email'].invalid && (myForm.controls['email'].dirty || myForm.controls['email'].touched)" class="alert">
+            <div *ngIf="myForm.controls['email'].errors?.required">
+            Please enter your Email Id
+          </div>
+        </div>
+      </div>
+        <!-- Date of Birth selection -->
+        <div class="mb-2">
+          <label class="center-block">Date of Birth:
+              <!-- <input
+              formControlName="gender"
+              type="text"
+              class="form-control block w-full px-4 py-2 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+              id="exampleFormControlInput100"
+              placeholder="Email ID"
+            /> -->
+           <div class="flex ">
+           
+  
+            <section>
+             
+              <mat-form-field appearance="fill" >
+                <mat-label>Choose a date</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="dob">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+            
+            </section>
+  </div>
+  
+          </label>
+          <div *ngIf="myForm.controls['email'].invalid && (myForm.controls['email'].dirty || myForm.controls['email'].touched)" class="alert">
+              <div *ngIf="myForm.controls['email'].errors?.required">
+              Please enter your Email Id
+            </div>
+          </div>
+        </div>
+      <!-- phone number -->
+      <div class="mb-2">
+        <label class="center-block">Mobile Number:
+            <input
+            formControlName="mobileNumber"
+            type="tel"
+            class="form-control block w-full px-4 py-2 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+            id="exampleFormControlInput3"
+            placeholder="Mobile number"
+          />
+
+        </label>
+        <div *ngIf="myForm.controls['mobileNumber'].invalid && (myForm.controls['mobileNumber'].dirty || myForm.controls['mobileNumber'].touched)" class="alert">
+            <div *ngIf="myForm.controls['mobileNumber'].errors?.required">
+            Please enter your mobile number
+          </div>
+        </div>
+      </div>
+  <!-- New password -->
+  <div class="mb-2">
+    <label class="center-block">  Password:
+      <input
+      formControlName="password"
+      type="password"
+      class="form-control block w-full px-4 py-2  font-normal text-gray-700  bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+      id="exampleFormControlInput56"
+      placeholder=" Password"
+    />
+
+  </label>
+  <div *ngIf="myForm.controls['password'].invalid && (myForm.controls['password'].dirty || myForm.controls['password'].touched)" class="alert">
+    <div *ngIf="myForm.controls['password'].errors?.required">
+    Please enter your password 
+  </div>
+</div>
+
+  </div>
+  <div class="mb-2">
+    bothPasswordsMatch:{{bothPasswordsMatch}}
+    <label class="center-block"> Confirm Password:
+      <input
+      formControlName="confirmPassword"
+      type="password"
+     
+      class="form-control block w-full px-4 py-2 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+      id="exampleFormControlInput9"
+      placeholder="Confirm Password"
+     
+    
+        (input)="checkPasswordsmatch()"
+     
+    />
+
+  </label>
+  <div *ngIf="myForm.controls['confirmPassword'].invalid && (myForm.controls['confirmPassword'].dirty || myForm.controls['confirmPassword'].touched)" class="alert">
+      <div *ngIf="myForm.controls['confirmPassword'].errors?.required">
+      Please re-enter your password to confirm it
+    </div>
+  </div>
+  <div *ngIf="!bothPasswordsMatch"  class="alert">
+   The two passwords don't match
+  </div>
+  </div>
+</form>
+<form [formGroup]="myForm" (ngSubmit)="createAccount()">
+  
+      
+ 
+
+
+
+    <div class="flex justify-between items-center mb-6">
+      <div class="form-group form-check mr-6">
+        <input
+          type="checkbox"
+          class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
+          id="exampleCheck2"
+        />
+        <label class="form-check-label inline-block " for="exampleCheck2"
+          >Accept Terms and Conditions</label
+        >
+      </div>
+    
+      <!-- <a href="#!" class="text-gray-800">Forgot password?</a> -->
+    </div>
+    myForm.invalid :{{myForm.invalid}}
+     <div class="text-center lg:text-left">
+      <button mat-flat-button color="primary"  type="submit"   class="w-3/5 inline-block px-7 py-3  text-white font-medium text-sm leading-snug uppercase rounded shadow-md  hover:shadow-lg  focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out">
+        <span class="text-white">
+         Create Account
+    </span>
+</button>
+    
+    </div> 
+    <div>
+      <p class=" float-right text-sm font-semibold mt-2 pt-1 mb-0" >
+        Already have an account?
+         <a 
+         routerLink="/signUp/login"
+           class="text-red-600 hover:text-red-700 focus:text-red-700 transition duration-200 ease-in-out"
+           >Log In</a
+         >
+       
+       </p>
+    </div>
+    
+  </form>
+
+</section>

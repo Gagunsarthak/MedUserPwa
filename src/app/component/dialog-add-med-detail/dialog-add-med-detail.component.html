@@ -1,0 +1,80 @@
+
+<div class="w-full">
+<div mat-dialog-content>
+    <h3 mat-dialog-title>Add Medical Details</h3>
+        <!-- Title of an Card -->  
+ 
+      
+        <!-- Actual content starts from here -->  
+        <mat-card-content>  
+            <form [formGroup]="medDetForm" (ngSubmit)="onFormSubmit(medDetForm.value)">  
+                <div class="grid md:grid-cols-2 md:gap-6">
+                    <div class="relative z-0 mb-6 sm:w-full group">
+                      <input type="number" name="floating_weight" formControlName="weight" id="floating_title"
+                        class="block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 border-gray-300 appearance-none  focus:outline-none focus:ring-0 focus:border-purple-600 peer"
+                        placeholder="Ex: 80 " required="" >
+                      <label for="floating_weight"
+                        class="peer-focus:font-medium absolute text-sm  duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-purple-600 peer-focus:dark:text-purple-500 peer-placeholder-shown:scale-100  peer-focus:scale-75 peer-focus:-translate-y-6">Weight (kg)</label>
+                      <div
+                        *ngIf="medDetForm.get('weight')!.invalid && (medDetForm.get('weight')!.dirty || medDetForm.get('weight')!.touched)"
+                        class="text-xs">
+                        Enter the weight in kgs
+                      </div>
+                    </div>
+                    <div class="relative z-0 mb-6 w-full group">
+                      <input type="text" name="floating_Degree" id="floating_Degree" formControlName="heartRate"
+                        class="block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 border-gray-300 appearance-none  focus:outline-none focus:ring-0 focus:border-purple-600 peer"
+                        placeholder="Ex: 72" required="">
+                      <label for="floating_heartRate"
+                        class="peer-focus:font-medium absolute text-sm  duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-purple-600 peer-focus:dark:text-purple-500 peer-placeholder-shown:scale-100   peer-focus:scale-75 peer-focus:-translate-y-6">Heart Rate (BPM)</label>
+                      <div *ngIf="medDetForm.get('heartRate')!.invalid && (medDetForm.get('heartRate')!.dirty || medDetForm.get('heartRate')!.touched)"
+                        class="text-xs">
+                        Enter the heartRate in BPM
+                      </div>
+                    </div>
+                    <div class="relative z-0 mb-6 w-full group">
+                      <input type="text" name="floating_fbcStatus" id="floating_fbcStatus" formControlName="fbcStatus"
+                        class="block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 border-gray-300 appearance-none  focus:outline-none focus:ring-0 focus:border-purple-600 peer"
+                        placeholder="Ex: 13" required="">
+                      <label for="floating_fbcStatus"
+                        class="peer-focus:font-medium absolute text-sm  duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-purple-600 peer-focus:dark:text-purple-500 peer-placeholder-shown:scale-100   peer-focus:scale-75 peer-focus:-translate-y-6">FBC Status</label>
+                      <div
+                        *ngIf="medDetForm.get('fbcStatus')!.invalid && (medDetForm.get('fbcStatus')!.dirty || medDetForm.get('fbcStatus')!.touched)"
+                        class="text-xs">
+                        Enter the FBC status
+                      </div>
+                    </div>
+                  </div>
+              
+                    <div class="grid md:grid-cols-2 md:gap-6">
+                      <div class="relative z-0 mb-6 sm:w-full group">
+                        <input type="number" name="floating_bmi" formControlName="bmi" id="floating_title"
+                          class="block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 border-gray-300 appearance-none  focus:outline-none focus:ring-0 focus:border-purple-600 peer"
+                          placeholder="Ex: AIIMS, Delhi " required="" >
+                        <label for="floating_BMI"
+                          class="peer-focus:font-medium absolute text-sm  duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-purple-600 peer-focus:dark:text-purple-500 peer-placeholder-shown:scale-100  peer-focus:scale-75 peer-focus:-translate-y-6">BMI</label>
+                        <div
+                          *ngIf="medDetForm.get('bmi')!.invalid && (medDetForm.get('bmi')!.dirty || medDetForm.get('bmi')!.touched)"
+                          class="text-xs">
+                          Enter the BMI
+                        </div>
+                      </div>
+                
+                    </div>
+                
+                    <!-- <div class="relative z-0 mb-6 w-full group">
+                        <input type="text" name="floating_StudyField" id="floating_StudyField" formControlName="studyField" class="block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 border-gray-300 appearance-none  focus:outline-none focus:ring-0 focus:border-purple-600 peer" placeholder="Ex: Nephrology" required="">
+                        <label for="floating_StudyField" class="peer-focus:font-medium absolute text-sm  duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-purple-600 peer-focus:dark:text-purple-500 peer-placeholder-shown:scale-100   peer-focus:scale-75 peer-focus:-translate-y-6">Field of Study</label>
+                        <div *ngIf="medDetForm.get('studyField')!.invalid && (medDetForm.get('studyField')!.dirty || medDetForm.get('studyField')!.touched)" class="text-red-500">
+                            Please provide the field of study.
+                          </div>
+                    </div> -->
+               
+                   
+                    <button type="submit" [disabled]="!medDetForm.dirty"
+                      class="text-white bg-purple-700 disabled:opacity-25 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800 float-right">Add</button>
+              
+            </form>  
+        </mat-card-content>  
+
+</div>

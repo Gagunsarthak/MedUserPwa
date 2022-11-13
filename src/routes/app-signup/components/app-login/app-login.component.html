@@ -1,0 +1,110 @@
+<section class="h-screen">
+
+
+<h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 ">Log In</h1>
+
+<mat-tab-group animationDuration="500ms" style="height:350px ;">
+  <mat-tab label="Using OTP" >
+    <form [formGroup]="loginForm" >
+
+    <div class="flex w-full justify-center items-center">
+      
+      <div class="relative mr-4 lg:w-full xl:w-1/2 w-2/4 md:w-full text-left" style="width: 75%;">
+        <label class="center-block ">Enter your mobile number
+          <div class="relative mb-4">
+            <!-- <label for="full-name" class="leading-7 text-sm ">Mobile Number/Email ID </label> -->
+            <input type="tel" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" formControlName="mobileNumber"  name="full-name" placeholder="Enter your registered mobile number" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+          </div>
+        </label>
+      </div>
+      <div id="sign-in-button">
+
+      </div>
+      <button mat-flat-button color="primary" id="sign-in-button" class="text-white" *ngIf="!otpFieldEnabled" [disabled]="!(loginForm.value.mobileNumber.length>=10)" (click)="sendOtp()">
+        
+        <span>Send OTP</span> </button>
+        <button mat-flat-button color="primary" [disabled]="!(loginForm.value.mobileNumber.length>=10)" class=" text-white" *ngIf="otpFieldEnabled"  (click)="sendOtp()">
+        
+          <span>Resend OTP</span> </button>
+      <!-- <button class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Button</button> -->
+    </div>
+    <div class="flex justify-center mt-12" *ngIf="otpFieldEnabled">
+      <div>
+     
+        <div class="form-floating mb-3 xl:w-96 text-center">
+          <h3 class="sm:text-3xl text-2xl font-medium title-font mb-2 ">You will get an OTP via SMS</h3>
+    
+          <ng-otp-input #ngOtpInput (onInputChange)="onOtpChange($event)" [hidden]="!showOtpComponent" [config]="config" ></ng-otp-input>
+        </div>
+      </div>
+    </div>
+
+    
+   </form>
+ </mat-tab>
+  <mat-tab label="Using Password">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm)">
+ 
+    <!-- <div class="flex flex-row items-center justify-center lg:justify-start">
+      <p class="text-lg mb-0 mr-4">Log In</p>
+   
+    </div> -->
+
+  
+    <!-- Email input -->
+    <div class="relative mb-4">
+        <label for="full-name" class="leading-7 text-sm ">Mobile Number/Email ID </label>
+        <input type="text" formControlName="mobileNumber"  name="email" placeholder="Email address or Registered Mobile Number" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+      </div>
+      <div class="relative mb-4">
+        <label for="full-name" class="leading-7 text-sm ">Password </label>
+        <input type="password" formControlName="password"  name="password"  placeholder="Password" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+      </div>
+
+
+    <div class="flex justify-between items-center mb-6">
+      <div class="form-group form-check">
+        <input
+          type="checkbox" 
+          class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-purple-600 checked:border-purple-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
+          id="exampleCheck2"  formControlName="mobileNumber"
+        />
+        <label class="form-check-label inline-block " for="exampleCheck2"
+          >Log In with OTP</label
+        >
+      </div>
+      <a  routerLink="/signUp/reset" class="">Forgot password?</a>
+    </div>
+    <div *ngIf="showAlert.visible"class="bg-red-100 border mb-4 transition-opacity ease-in duration-700 opacity-100 hover:opacity-0 border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+      <!-- <strong class="font-bold">{{showAlert.token}} : </strong> -->
+      <span class="block sm:inline">{{showAlert.token}} : {{showAlert.message}}</span>
+  
+    </div>
+    <div class="text-center lg:text-left mb-4">
+      <button mat-flat-button color="primary" type="submit" [disabled]="loginForm.invalid" class="w-3/5 inline-block px-7 py-3  text-white font-medium text-sm leading-snug uppercase rounded shadow-md  hover:shadow-lg  focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out">
+        <span class="text-white">
+          Login
+    </span>
+</button>
+     
+    
+    </div>
+    <p class="float-right text-sm font-semibold mt-2 pt-1 mb-0" >
+      Don't have an account?
+      <a 
+      routerLink="/signUp/register"
+        class="text-red-600 hover:text-red-700 focus:text-red-700 transition duration-200 ease-in-out"
+        >Register</a
+      >
+    
+    </p>
+    
+  </form>
+
+</mat-tab>
+ 
+</mat-tab-group>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+  <path fill="#00cba9" fill-opacity="1" d="M0,96L21.8,117.3C43.6,139,87,181,131,186.7C174.5,192,218,160,262,138.7C305.5,117,349,107,393,106.7C436.4,107,480,117,524,149.3C567.3,181,611,235,655,229.3C698.2,224,742,160,785,160C829.1,160,873,224,916,245.3C960,267,1004,245,1047,224C1090.9,203,1135,181,1178,176C1221.8,171,1265,181,1309,170.7C1352.7,160,1396,128,1418,112L1440,96L1440,320L1418.2,320C1396.4,320,1353,320,1309,320C1265.5,320,1222,320,1178,320C1134.5,320,1091,320,1047,320C1003.6,320,960,320,916,320C872.7,320,829,320,785,320C741.8,320,698,320,655,320C610.9,320,567,320,524,320C480,320,436,320,393,320C349.1,320,305,320,262,320C218.2,320,175,320,131,320C87.3,320,44,320,22,320L0,320Z"></path>
+</svg>
+</section>

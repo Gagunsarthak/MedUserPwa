@@ -1,0 +1,751 @@
+{
+  "searchData": [
+    {
+      "type": "Dr",
+      "name": "Neelima Tangirala",
+      "degrees": "MD, MPH",
+      "serviceType": "Primary Day Care",
+      "address": "Viman Nagar, Pune, 411011",
+      "rating": 4.61,
+      "ratingCount": 250,
+      "distance": "5 km",
+      "bestReviewTag": "Loyal Patients",
+      "searchImage": "https://d3wnzga3fpd9a.cloudfront.net/photos/Dr-Nee…a-Tangirala-MD-MPH-328565-circle_medium__v1__.png",
+      "feedbacks": [
+        "New Patients appointments",
+        "Highly recommended",
+        "Excellent wait time"
+      ],
+      "appointmentDetail": {
+        "firstWeek": [
+          {
+            "day": "Sat",
+            "date": "25",
+            "year": "2022",
+            "noOfApp": "No"
+          },
+          {
+            "day": "Sun",
+            "date": "26",
+            "year": "2022",
+            "noOfApp": "No"
+          },
+          {
+            "day": "Mon",
+            "date": "27",
+            "year": "2022",
+            "noOfApp": "1"
+          },
+          {
+            "day": "Tue",
+            "date": "28",
+            "year": "2022",
+            "noOfApp": "6"
+          },
+          {
+            "day": "Wed",
+            "date": "29",
+            "year": "2022",
+            "noOfApp": "No"
+          },
+          {
+            "day": "Thu",
+            "date": "30",
+            "year": "2022",
+            "noOfApp": "6"
+          },
+          {
+            "day": "Fri",
+            "date": "1",
+            "year": "2022",
+            "noOfApp": "5"
+          }
+        ],
+        "secondWeek": [
+          {
+            "day": "Sat",
+            "date": "2",
+            "year": "2022",
+            "noOfApp": "No"
+          },
+          {
+            "day": "Sun",
+            "date": "3",
+            "year": "2022",
+            "noOfApp": "No"
+          },
+          {
+            "day": "Mon",
+            "date": "4",
+            "year": "2022",
+            "noOfApp": "1"
+          },
+          {
+            "day": "Tue",
+            "date": "5",
+            "year": "2022",
+            "noOfApp": "6"
+          },
+          {
+            "day": "Wed",
+            "date": "6",
+            "year": "2022",
+            "noOfApp": "No"
+          },
+          {
+            "day": "Thu",
+            "date": "7",
+            "year": "2022",
+            "noOfApp": "6"
+          },
+          {
+            "day": "Fri",
+            "date": "8",
+            "year": "2022",
+            "noOfApp": "5"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Dr",
+      "name": "Andrew Fagelman",
+      "degrees": "MD",
+      "serviceType": "Primary Day Care",
+      "address": "Sai Saheb Society, Shiv Sai Lane, Pimple Saudagar, Pune, Maharashtra 411027",
+      "rating": 4.2,
+      "ratingCount": 181,
+      "distance": "5 km",
+      "bestReviewTag": "Loyal Patients",
+      "searchImage": "https://d3wnzga3fpd9a.cloudfront.net/photos/Dr-Andrew-Fagelman-MD-7363-circle_medium.png  ",
+      "feedbacks": [
+        "New Patients appointments",
+        "Also offers video visits"
+      ],
+      "appointmentDetail": {
+        "firstWeek": [
+          {
+            "day": "Sat",
+            "date": "25",
+            "year": "2022",
+            "noOfApp": "No"
+          },
+          {
+            "day": "Sun",
+            "date": "26",
+            "year": "2022",
+            "noOfApp": "No"
+          },
+          {
+            "day": "Mon",
+            "date": "27",
+            "year": "2022",
+            "noOfApp": "1"
+          },
+          {
+            "day": "Tue",
+            "date": "28",
+            "year": "2022",
+            "noOfApp": "6"
+          },
+          {
+            "day": "Wed",
+            "date": "29",
+            "year": "2022",
+            "noOfApp": "10"
+          },
+          {
+            "day": "Thu",
+            "date": "30",
+            "year": "2022",
+            "noOfApp": "6"
+          },
+          {
+            "day": "Fri",
+            "date": "1",
+            "year": "2022",
+            "noOfApp": "5"
+          }
+        ],
+        "secondWeek": [
+          {
+            "day": "Sat",
+            "date": "2",
+            "year": "2022",
+            "noOfApp": "10"
+          },
+          {
+            "day": "Sun",
+            "date": "3",
+            "year": "2022",
+            "noOfApp": "No"
+          },
+          {
+            "day": "Mon",
+            "date": "4",
+            "year": "2022",
+            "noOfApp": "1"
+          },
+          {
+            "day": "Tue",
+            "date": "5",
+            "year": "2022",
+            "noOfApp": "6"
+          },
+          {
+            "day": "Wed",
+            "date": "6",
+            "year": "2022",
+            "noOfApp": "No"
+          },
+          {
+            "day": "Thu",
+            "date": "7",
+            "year": "2022",
+            "noOfApp": "6"
+          },
+          {
+            "day": "Fri",
+            "date": "8",
+            "year": "2022",
+            "noOfApp": "5"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Dr",
+      "name": "Neelima Tangirala",
+      "degrees": "MD, MPH",
+      "serviceType": "Primary Day Care",
+      "address": "Viman Nagar, Pune, 411011",
+      "rating": 4.61,
+      "ratingCount": 250,
+      "distance": "5 km",
+      "bestReviewTag": "Loyal Patients",
+      "searchImage": "https://d3wnzga3fpd9a.cloudfront.net/photos/Dr-Nee…a-Tangirala-MD-MPH-328565-circle_medium__v1__.png",
+      "feedbacks": [
+        "New Patients appointments",
+        "Also offers video visits"
+      ],
+      "appointmentDetail": {
+        "firstWeek": [
+          {
+            "day": "Sat",
+            "date": "25",
+            "year": "2022",
+            "noOfApp": "No"
+          },
+          {
+            "day": "Sun",
+            "date": "26",
+            "year": "2022",
+            "noOfApp": "No"
+          },
+          {
+            "day": "Mon",
+            "date": "27",
+            "year": "2022",
+            "noOfApp": "1"
+          },
+          {
+            "day": "Tue",
+            "date": "28",
+            "year": "2022",
+            "noOfApp": "6"
+          },
+          {
+            "day": "Wed",
+            "date": "29",
+            "year": "2022",
+            "noOfApp": "8"
+          },
+          {
+            "day": "Thu",
+            "date": "30",
+            "year": "2022",
+            "noOfApp": "6"
+          },
+          {
+            "day": "Fri",
+            "date": "1",
+            "year": "2022",
+            "noOfApp": "5"
+          }
+        ],
+        "secondWeek": [
+          {
+            "day": "Sat",
+            "date": "2",
+            "year": "2022",
+            "noOfApp": "1"
+          },
+          {
+            "day": "Sun",
+            "date": "3",
+            "year": "2022",
+            "noOfApp": "No"
+          },
+          {
+            "day": "Mon",
+            "date": "4",
+            "year": "2022",
+            "noOfApp": "1"
+          },
+          {
+            "day": "Tue",
+            "date": "5",
+            "year": "2022",
+            "noOfApp": "6"
+          },
+          {
+            "day": "Wed",
+            "date": "6",
+            "year": "2022",
+            "noOfApp": "9"
+          },
+          {
+            "day": "Thu",
+            "date": "7",
+            "year": "2022",
+            "noOfApp": "6"
+          },
+          {
+            "day": "Fri",
+            "date": "8",
+            "year": "2022",
+            "noOfApp": "5"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Dr",
+      "name": "Neelima Tangirala",
+      "degrees": "MD, MPH",
+      "serviceType": "Primary Day Care",
+      "address": "Viman Nagar, Pune, 411011",
+      "rating": 4.61,
+      "ratingCount": 250,
+      "distance": "5 km",
+      "bestReviewTag": "Loyal Patients",
+      "searchImage": "https://d3wnzga3fpd9a.cloudfront.net/photos/Dr-Nee…a-Tangirala-MD-MPH-328565-circle_medium__v1__.png",
+      "feedbacks": [
+        "New Patients appointments",
+        "Highly recommended",
+        "Excellent wait time"
+      ],
+      "appointmentDetail": {
+        "firstWeek": [
+          {
+            "day": "Sat",
+            "date": "25",
+            "year": "2022",
+            "noOfApp": "No"
+          },
+          {
+            "day": "Sun",
+            "date": "26",
+            "year": "2022",
+            "noOfApp": "No"
+          },
+          {
+            "day": "Mon",
+            "date": "27",
+            "year": "2022",
+            "noOfApp": "1"
+          },
+          {
+            "day": "Tue",
+            "date": "28",
+            "year": "2022",
+            "noOfApp": "6"
+          },
+          {
+            "day": "Wed",
+            "date": "29",
+            "year": "2022",
+            "noOfApp": "No"
+          },
+          {
+            "day": "Thu",
+            "date": "30",
+            "year": "2022",
+            "noOfApp": "6"
+          },
+          {
+            "day": "Fri",
+            "date": "1",
+            "year": "2022",
+            "noOfApp": "5"
+          }
+        ],
+        "secondWeek": [
+          {
+            "day": "Sat",
+            "date": "2",
+            "year": "2022",
+            "noOfApp": "No"
+          },
+          {
+            "day": "Sun",
+            "date": "3",
+            "year": "2022",
+            "noOfApp": "No"
+          },
+          {
+            "day": "Mon",
+            "date": "4",
+            "year": "2022",
+            "noOfApp": "1"
+          },
+          {
+            "day": "Tue",
+            "date": "5",
+            "year": "2022",
+            "noOfApp": "6"
+          },
+          {
+            "day": "Wed",
+            "date": "6",
+            "year": "2022",
+            "noOfApp": "No"
+          },
+          {
+            "day": "Thu",
+            "date": "7",
+            "year": "2022",
+            "noOfApp": "6"
+          },
+          {
+            "day": "Fri",
+            "date": "8",
+            "year": "2022",
+            "noOfApp": "5"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Dr",
+      "name": "Neelima Tangirala",
+      "degrees": "MD, MPH",
+      "serviceType": "Primary Day Care",
+      "address": "Viman Nagar, Pune, 411011",
+      "rating": 4.61,
+      "ratingCount": 250,
+      "distance": "5 km",
+      "bestReviewTag": "Loyal Patients",
+      "searchImage": "https://d3wnzga3fpd9a.cloudfront.net/photos/Dr-Nee…a-Tangirala-MD-MPH-328565-circle_medium__v1__.png",
+      "feedbacks": [
+        "New Patients appointments",
+        "Highly recommended",
+        "Excellent wait time"
+      ],
+      "appointmentDetail": {
+        "firstWeek": [
+          {
+            "day": "Sat",
+            "date": "25",
+            "year": "2022",
+            "noOfApp": "No"
+          },
+          {
+            "day": "Sun",
+            "date": "26",
+            "year": "2022",
+            "noOfApp": "No"
+          },
+          {
+            "day": "Mon",
+            "date": "27",
+            "year": "2022",
+            "noOfApp": "1"
+          },
+          {
+            "day": "Tue",
+            "date": "28",
+            "year": "2022",
+            "noOfApp": "6"
+          },
+          {
+            "day": "Wed",
+            "date": "29",
+            "year": "2022",
+            "noOfApp": "No"
+          },
+          {
+            "day": "Thu",
+            "date": "30",
+            "year": "2022",
+            "noOfApp": "6"
+          },
+          {
+            "day": "Fri",
+            "date": "1",
+            "year": "2022",
+            "noOfApp": "5"
+          }
+        ],
+        "secondWeek": [
+          {
+            "day": "Sat",
+            "date": "2",
+            "year": "2022",
+            "noOfApp": "No"
+          },
+          {
+            "day": "Sun",
+            "date": "3",
+            "year": "2022",
+            "noOfApp": "No"
+          },
+          {
+            "day": "Mon",
+            "date": "4",
+            "year": "2022",
+            "noOfApp": "1"
+          },
+          {
+            "day": "Tue",
+            "date": "5",
+            "year": "2022",
+            "noOfApp": "6"
+          },
+          {
+            "day": "Wed",
+            "date": "6",
+            "year": "2022",
+            "noOfApp": "No"
+          },
+          {
+            "day": "Thu",
+            "date": "7",
+            "year": "2022",
+            "noOfApp": "6"
+          },
+          {
+            "day": "Fri",
+            "date": "8",
+            "year": "2022",
+            "noOfApp": "5"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Dr",
+      "name": "Neelima Tangirala",
+      "degrees": "MD, MPH",
+      "serviceType": "Primary Day Care",
+      "address": "Viman Nagar, Pune, 411011",
+      "rating": 4.61,
+      "ratingCount": 250,
+      "distance": "5 km",
+      "bestReviewTag": "Loyal Patients",
+      "searchImage": "https://d3wnzga3fpd9a.cloudfront.net/photos/Dr-Nee…a-Tangirala-MD-MPH-328565-circle_medium__v1__.png",
+      "feedbacks": [
+        "New Patients appointments",
+        "Highly recommended",
+        "Excellent wait time"
+      ],
+      "appointmentDetail": {
+        "firstWeek": [
+          {
+            "day": "Sat",
+            "date": "25",
+            "year": "2022",
+            "noOfApp": "No"
+          },
+          {
+            "day": "Sun",
+            "date": "26",
+            "year": "2022",
+            "noOfApp": "No"
+          },
+          {
+            "day": "Mon",
+            "date": "27",
+            "year": "2022",
+            "noOfApp": "1"
+          },
+          {
+            "day": "Tue",
+            "date": "28",
+            "year": "2022",
+            "noOfApp": "6"
+          },
+          {
+            "day": "Wed",
+            "date": "29",
+            "year": "2022",
+            "noOfApp": "No"
+          },
+          {
+            "day": "Thu",
+            "date": "30",
+            "year": "2022",
+            "noOfApp": "6"
+          },
+          {
+            "day": "Fri",
+            "date": "1",
+            "year": "2022",
+            "noOfApp": "5"
+          }
+        ],
+        "secondWeek": [
+          {
+            "day": "Sat",
+            "date": "2",
+            "year": "2022",
+            "noOfApp": "No"
+          },
+          {
+            "day": "Sun",
+            "date": "3",
+            "year": "2022",
+            "noOfApp": "No"
+          },
+          {
+            "day": "Mon",
+            "date": "4",
+            "year": "2022",
+            "noOfApp": "1"
+          },
+          {
+            "day": "Tue",
+            "date": "5",
+            "year": "2022",
+            "noOfApp": "6"
+          },
+          {
+            "day": "Wed",
+            "date": "6",
+            "year": "2022",
+            "noOfApp": "No"
+          },
+          {
+            "day": "Thu",
+            "date": "7",
+            "year": "2022",
+            "noOfApp": "6"
+          },
+          {
+            "day": "Fri",
+            "date": "8",
+            "year": "2022",
+            "noOfApp": "5"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Dr",
+      "name": "Neelima Tangirala",
+      "degrees": "MD, MPH",
+      "serviceType": "Primary Day Care",
+      "address": "Viman Nagar, Pune, 411011",
+      "rating": 4.61,
+      "ratingCount": 250,
+      "distance": "5 km",
+      "bestReviewTag": "Loyal Patients",
+      "searchImage": "https://d3wnzga3fpd9a.cloudfront.net/photos/Dr-Nee…a-Tangirala-MD-MPH-328565-circle_medium__v1__.png",
+      "feedbacks": [
+        "New Patients appointments",
+        "Highly recommended",
+        "Excellent wait time"
+      ],
+      "appointmentDetail": {
+        "firstWeek": [
+          {
+            "day": "Sat",
+            "date": "25",
+            "year": "2022",
+            "noOfApp": "No"
+          },
+          {
+            "day": "Sun",
+            "date": "26",
+            "year": "2022",
+            "noOfApp": "No"
+          },
+          {
+            "day": "Mon",
+            "date": "27",
+            "year": "2022",
+            "noOfApp": "1"
+          },
+          {
+            "day": "Tue",
+            "date": "28",
+            "year": "2022",
+            "noOfApp": "6"
+          },
+          {
+            "day": "Wed",
+            "date": "29",
+            "year": "2022",
+            "noOfApp": "No"
+          },
+          {
+            "day": "Thu",
+            "date": "30",
+            "year": "2022",
+            "noOfApp": "6"
+          },
+          {
+            "day": "Fri",
+            "date": "1",
+            "year": "2022",
+            "noOfApp": "5"
+          }
+        ],
+        "secondWeek": [
+          {
+            "day": "Sat",
+            "date": "2",
+            "year": "2022",
+            "noOfApp": "No"
+          },
+          {
+            "day": "Sun",
+            "date": "3",
+            "year": "2022",
+            "noOfApp": "No"
+          },
+          {
+            "day": "Mon",
+            "date": "4",
+            "year": "2022",
+            "noOfApp": "1"
+          },
+          {
+            "day": "Tue",
+            "date": "5",
+            "year": "2022",
+            "noOfApp": "6"
+          },
+          {
+            "day": "Wed",
+            "date": "6",
+            "year": "2022",
+            "noOfApp": "No"
+          },
+          {
+            "day": "Thu",
+            "date": "7",
+            "year": "2022",
+            "noOfApp": "6"
+          },
+          {
+            "day": "Fri",
+            "date": "8",
+            "year": "2022",
+            "noOfApp": "5"
+          }
+        ]
+      }
+    }
+  ]
+}

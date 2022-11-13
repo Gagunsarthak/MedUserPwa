@@ -1,0 +1,19 @@
+
+
+<div mat-dialog-content>
+    <div style="display: block;">
+        <canvas baseChart width="400" height="400"
+          [type]="'line'"
+          [data]="lineChartData"
+          [options]="lineChartOptions"
+          [legend]="lineChartLegend">
+        </canvas>
+      </div>
+</div>
+<div mat-dialog-actions class="flex-row-reverse">
+  <button mat-flat-button color="primary"  (click)="confirmed()" i18n>
+    Yes
+  </button>
+  <button mat-button class="margin-right-xs" style="margin-right: 2%;" mat-dialog-close cdkFocusInitial i18n>No</button>
+</div>
+

@@ -1,0 +1,752 @@
+
+Profile isMobileOrTabView :{{isMobileOrTabView}}
+<nav ngxHideOnScroll [classNameWhenHidden]="'nav--hidden'" *ngIf="isMobileView"  [propertyUsedToHide]="'transform'">
+  <!-- <button mat-button >Primary</button> -->
+  <div *ngIf="profRes.name" class="float-left text-base font-bold leading-none" style="margin-top: 4%;">
+   Dr. {{profRes.name}}
+  </div>
+  <button  mat-raised-button class="float-right " style="margin-top: 1%;" color="primary"(click)="openTemplateSheetMenu()"  >Book </button>
+</nav>
+<!-- <div class="relative">
+    <div class="relative md:fixed w-full md:w-7/12 min-h-screen inset-0">
+      <h1 class="absolute bottom-0 left-0 p-20 text-white text-8xl">Benny<br />The Pup</h1>
+      <img src="https://images.unsplash.com/photo-1586671267731-da2cf3ceeb80?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=935&q=80" class="object-cover w-full h-full" />
+    </div>
+    <div class="w-full md:w-5/12 ml-auto">
+      <div class="bg-red-200 h-screen flex justify-center items-center flex-col p-10">
+        <h2 class="text-4xl mb-5">Meet Benny</h2>
+        <p class="mb-5">I was born 20 May 2020</p>
+      </div>
+      <div class="bg-red-50 h-screen flex justify-center items-center flex-col p-10">
+        <h2 class="text-4xl mb-5">I love food</h2>
+        <p class="mb-5">Bones, Pallets, and more!</p>
+      </div>
+      <div class="bg-red-200 h-screen flex justify-center items-center flex-col p-10">
+        <h2 class="text-4xl mb-5">I love my humans</h2>
+        <p class="mb-5">My humans are super special to me, and I love them</p>
+      </div>
+    </div>
+  </div> -->
+  timelineFetchStatus : {{timelineFetchStatus}}
+  <button mat-button (click)="openDialog('test')">Open dialog</button>
+<div class="flex flex-wrap  mb-8" *ngIf="timelineFetchStatus === 'done'" >
+  
+    <div class="w-full  lg:w-3/5 xl:w-3/4 " [ngClass]="isMobileOrTabView ? 'md:w-full' : 'md:w-3/5'">
+        <div class="  text-sm text-grey-dark flex items-center justify-center">
+           <!-- <p>full / half</p> -->
+           <div class="container flex flex-wrap mx-auto">
+            <div class="w-full  ">
+                <div class=" w-full mx-auto ">
+                    <div class="flex flex-col">
+                        <div class="   shadow-lg    ">
+                            <ng-container *ngIf="!isMobileOrTabView">
+                            <div class="flex-none sm:flex">
+                                <div class=" relative h-32 w-32   sm:mb-0 mb-3">
+                                    <img src={{profRes.profImageUrl}} alt="aji" class=" w-32 h-32 object-cover rounded-full">
+                                    <a href="#"
+                                        class="absolute -right-2 bottom-2   -ml-3  text-white p-1 text-xs bg-green-400 hover:bg-green-500 font-medium tracking-wider rounded-full transition ease-in duration-300">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                            class="h-4 w-4">
+                                            <path
+                                                d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z">
+                                            </path>
+                                        </svg>
+                                    </a>
+                                    
+                                </div>
+                                <div class="flex-auto sm:ml-5 justify-evenly">
+                                    <div class="flex items-center justify-between sm:mt-2">
+                                        <div class="flex items-center">
+                                            <div class="flex flex-col">
+                                                <div class="w-full flex-none text-lg  font-bold leading-none" *ngIf="profRes.name">Dr. {{profRes.name}}</div>
+                                                <div class="flex-auto  my-1">
+                                                    <span class="mr-1 "  *ngIf="profRes.designation">{{profRes.designation}}</span><span class="mr-3 border-r border-gray-200  max-h-0">MBBS, MS</span>
+                                                </div>
+                                                <div class="flex-auto  ">
+                                                  <span class="mr-3 " *ngIf="profRes.yearsOfExperience">Experience : {{profRes.yearsOfExperience}} years</span>
+                                                  
+                                              </div>
+                                                <div class="flex-auto  ">
+                                                    <span class="mr-3 " *ngIf="profRes.address">{{profRes.address}}</span>
+                                                    
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                        
+                                    </div>
+                            
+                                    <div class="flex pt-2  text-sm ">
+                                        
+                                        <div class="flex-1 inline-flex items-center">
+                                            <mat-chip-list aria-label="Consultations Available">
+                                                <mat-chip color="primary"  selected *ngIf="profRes.isVideoAllowed">
+                                                    <mat-chip-avatar>
+                                                      <mat-icon> video_call </mat-icon>
+                                                    </mat-chip-avatar>
+                                                 Video visits
+                                                  </mat-chip>
+                                           
+                                          
+                                                <mat-chip color="primary" selected *ngIf="profRes.isPersonAllowed">
+                                                    <mat-chip-avatar>
+                                                      <mat-icon> how_to_reg </mat-icon>
+                                                    </mat-chip-avatar>
+                                                    In-Person visits
+                                                  </mat-chip>
+                                            </mat-chip-list>
+                                           
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-row items-center mt-2">
+                                        <div class="flex">
+
+                                            
+                                            <div class="flex cursor-pointer items-center gap-2 rounded-lg bg-blue-500 p-2" *ngIf="profRes.isPersonAllowed">
+                                                <label class="cursor-pointer" >
+                                                    <div class="flex h-5 items-center ">
+                                                        <mat-icon> how_to_reg </mat-icon>
+                                                      </div>
+                                                </label>
+                                                <div class="text-white">In-Person visits</div>
+                                              </div>
+                                            <div class="flex cursor-pointer items-center gap-2 ml-4 rounded-lg bg-blue-500 p-2" *ngIf="profRes.isVideoAllowed">
+                                                <label class="cursor-pointer">
+                                                  <div class="flex h-5  items-center ">
+                                                    <mat-icon> video_call </mat-icon>
+                                                  </div>
+                                                </label>
+                                                <div class="text-white">video visits</div>
+                                              </div>
+
+                                        </div>
+                                        <div class="flex-1 inline-flex  hidden items-center">
+                                            <img class="w-5 h-5" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DVFlQRSBzdmcgIFBVQkxJQyAnLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4nICAnaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkJz48c3ZnIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDY0IDY0IiBoZWlnaHQ9IjY0cHgiIGlkPSJMYXllcl8xIiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCA2NCA2NCIgd2lkdGg9IjY0cHgiIHhtbDpzcGFjZT0icHJlc2VydmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxwYXRoIGQ9Ik0zMiw3LjE3NEMxOC4zMTEsNy4xNzQsNy4xNzQsMTguMzExLDcuMTc0LDMyYzAsMTMuNjg5LDExLjEzNywyNC44MjYsMjQuODI2LDI0LjgyNmMxMy42ODksMCwyNC44MjYtMTEuMTM3LDI0LjgyNi0yNC44MjYgIEM1Ni44MjYsMTguMzExLDQ1LjY4OSw3LjE3NCwzMiw3LjE3NHogTTM4LjE3NCwzMi44NzRoLTQuMDM5YzAsNi40NTMsMCwxNC4zOTgsMCwxNC4zOThoLTUuOTg1YzAsMCwwLTcuODY4LDAtMTQuMzk4aC0yLjg0NXYtNS4wODggIGgyLjg0NXYtMy4yOTFjMC0yLjM1NywxLjEyLTYuMDQsNi4wNC02LjA0bDQuNDMzLDAuMDE3djQuOTM5YzAsMC0yLjY5NSwwLTMuMjE5LDBjLTAuNTI0LDAtMS4yNjgsMC4yNjItMS4yNjgsMS4zODZ2Mi45OWg0LjU2ICBMMzguMTc0LDMyLjg3NHoiLz48L3N2Zz4=">
+                                            <img class="w-5 h-5" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DVFlQRSBzdmcgIFBVQkxJQyAnLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4nICAnaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkJz48c3ZnIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDU2LjY5MyA1Ni42OTMiIGhlaWdodD0iNTYuNjkzcHgiIGlkPSJMYXllcl8xIiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCA1Ni42OTMgNTYuNjkzIiB3aWR0aD0iNTYuNjkzcHgiIHhtbDpzcGFjZT0icHJlc2VydmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxwYXRoIGQ9Ik0yOC4zNDgsNS4xNTdjLTEzLjYsMC0yNC42MjUsMTEuMDI3LTI0LjYyNSwyNC42MjVjMCwxMy42LDExLjAyNSwyNC42MjMsMjQuNjI1LDI0LjYyM2MxMy42LDAsMjQuNjIzLTExLjAyMywyNC42MjMtMjQuNjIzICBDNTIuOTcxLDE2LjE4NCw0MS45NDcsNS4xNTcsMjguMzQ4LDUuMTU3eiBNNDAuNzUyLDI0LjgxN2MwLjAxMywwLjI2NiwwLjAxOCwwLjUzMywwLjAxOCwwLjgwM2MwLDguMjAxLTYuMjQyLDE3LjY1Ni0xNy42NTYsMTcuNjU2ICBjLTMuNTA0LDAtNi43NjctMS4wMjctOS41MTMtMi43ODdjMC40ODYsMC4wNTcsMC45NzksMC4wODYsMS40OCwwLjA4NmMyLjkwOCwwLDUuNTg0LTAuOTkyLDcuNzA3LTIuNjU2ICBjLTIuNzE1LTAuMDUxLTUuMDA2LTEuODQ2LTUuNzk2LTQuMzExYzAuMzc4LDAuMDc0LDAuNzY3LDAuMTExLDEuMTY3LDAuMTExYzAuNTY2LDAsMS4xMTQtMC4wNzQsMS42MzUtMC4yMTcgIGMtMi44NC0wLjU3LTQuOTc5LTMuMDgtNC45NzktNi4wODRjMC0wLjAyNywwLTAuMDUzLDAuMDAxLTAuMDhjMC44MzYsMC40NjUsMS43OTMsMC43NDQsMi44MTEsMC43NzcgIGMtMS42NjYtMS4xMTUtMi43NjEtMy4wMTItMi43NjEtNS4xNjZjMC0xLjEzNywwLjMwNi0yLjIwNCwwLjg0LTMuMTJjMy4wNjEsMy43NTQsNy42MzQsNi4yMjUsMTIuNzkyLDYuNDgzICBjLTAuMTA2LTAuNDUzLTAuMTYxLTAuOTI4LTAuMTYxLTEuNDE0YzAtMy40MjYsMi43NzgtNi4yMDUsNi4yMDYtNi4yMDVjMS43ODUsMCwzLjM5NywwLjc1NCw0LjUyOSwxLjk1OSAgYzEuNDE0LTAuMjc3LDIuNzQyLTAuNzk1LDMuOTQxLTEuNTA2Yy0wLjQ2NSwxLjQ1LTEuNDQ4LDIuNjY2LTIuNzMsMy40MzNjMS4yNTctMC4xNSwyLjQ1My0wLjQ4NCwzLjU2NS0wLjk3NyAgQzQzLjAxOCwyMi44NDksNDEuOTY1LDIzLjk0Miw0MC43NTIsMjQuODE3eiIvPjwvc3ZnPg==">
+                                            <img class="w-5 h-5" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DVFlQRSBzdmcgIFBVQkxJQyAnLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4nICAnaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkJz48c3ZnIGhlaWdodD0iNjdweCIgaWQ9IkxheWVyXzEiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDY3IDY3OyIgdmVyc2lvbj0iMS4xIiB2aWV3Qm94PSIwIDAgNjcgNjciIHdpZHRoPSI2N3B4IiB4bWw6c3BhY2U9InByZXNlcnZlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48cGF0aCBkPSJNNTAuODM3LDQ4LjEzN1YzNi40MjVjMC02LjI3NS0zLjM1LTkuMTk1LTcuODE2LTkuMTk1ICBjLTMuNjA0LDAtNS4yMTksMS45ODMtNi4xMTksMy4zNzRWMjcuNzFoLTYuNzljMC4wOSwxLjkxNywwLDIwLjQyNywwLDIwLjQyN2g2Ljc5VjM2LjcyOWMwLTAuNjA5LDAuMDQ0LTEuMjE5LDAuMjI0LTEuNjU1ICBjMC40OS0xLjIyLDEuNjA3LTIuNDgzLDMuNDgyLTIuNDgzYzIuNDU4LDAsMy40NCwxLjg3MywzLjQ0LDQuNjE4djEwLjkyOUg1MC44Mzd6IE0yMi45NTksMjQuOTIyYzIuMzY3LDAsMy44NDItMS41NywzLjg0Mi0zLjUzMSAgYy0wLjA0NC0yLjAwMy0xLjQ3NS0zLjUyOC0zLjc5Ny0zLjUyOHMtMy44NDEsMS41MjQtMy44NDEsMy41MjhjMCwxLjk2MSwxLjQ3NCwzLjUzMSwzLjc1MywzLjUzMUgyMi45NTl6IE0zNCw2NCAgQzE3LjQzMiw2NCw0LDUwLjU2OCw0LDM0QzQsMTcuNDMxLDE3LjQzMiw0LDM0LDRzMzAsMTMuNDMxLDMwLDMwQzY0LDUwLjU2OCw1MC41NjgsNjQsMzQsNjR6IE0yNi4zNTQsNDguMTM3VjI3LjcxaC02Ljc4OXYyMC40MjcgIEgyNi4zNTR6IiBzdHlsZT0iZmlsbC1ydWxlOmV2ZW5vZGQ7Y2xpcC1ydWxlOmV2ZW5vZGQ7ZmlsbDojMDEwMTAxOyIvPjwvc3ZnPg==">
+            
+                                        </div>
+                                        </div>
+                                        <div class="flex pt-2  text-sm text-gray-500">
+                                            <div class="flex-1 inline-flex items-center">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20"
+                                                    fill="currentColor">
+                                                    <path
+                                                        d="M8 9a3 3 0 100-6 3 3 0 000 6zM8 11a6 6 0 016 6H2a6 6 0 016-6zM16 7a1 1 0 10-2 0v1h-1a1 1 0 100 2h1v1a1 1 0 102 0v-1h1a1 1 0 100-2h-1V7z">
+                                                    </path>
+                                                </svg>
+                                                <p class="">{{profRes.satisfiedPatients}} satisfied patients</p>
+                                            </div>
+                                            <div class="flex-1 inline-flex items-center">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20"
+                                                    fill="currentColor">
+                                                    <path fill-rule="evenodd"
+                                                        d="M12.395 2.553a1 1 0 00-1.45-.385c-.345.23-.614.558-.822.88-.214.33-.403.713-.57 1.116-.334.804-.614 1.768-.84 2.734a31.365 31.365 0 00-.613 3.58 2.64 2.64 0 01-.945-1.067c-.328-.68-.398-1.534-.398-2.654A1 1 0 005.05 6.05 6.981 6.981 0 003 11a7 7 0 1011.95-4.95c-.592-.591-.98-.985-1.348-1.467-.363-.476-.724-1.063-1.207-2.03zM12.12 15.12A3 3 0 017 13s.879.5 2.5.5c0-1 .5-4 1.25-4.5.5 1 .786 1.293 1.371 1.879A2.99 2.99 0 0113 13a2.99 2.99 0 01-.879 2.121z"
+                                                        clip-rule="evenodd"></path>
+                                                </svg>
+                                                <p class="">{{profRes.consultations}} Consultations</p>
+                                            </div>
+                                            <!-- <button  class="flex-no-shrink bg-green-400 hover:bg-green-500 px-5 ml-4 py-2 text-xs shadow-sm hover:shadow-lg font-medium tracking-wider border-2 border-green-300 hover:border-green-500 text-white rounded-full transition ease-in duration-300">FOLLOW</button> -->
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                </ng-container>
+                               <ng-container *ngIf="isMobileOrTabView">
+                            
+                                <div class="flex items-center">
+                                    <div class=" relative h-16 w-16   sm:mb-0 mb-3">
+                                        <img src={{profRes.profImageUrl}} alt="aji" class=" w-16 h-16 object-cover rounded-full">
+                                        <a href="#"
+                                            class="absolute -right-2 bottom-2   -ml-3  text-white p-1 text-xs bg-green-400 hover:bg-green-500 font-medium tracking-wider rounded-full transition ease-in duration-300">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                                class="h-4 w-4">
+                                                <path
+                                                    d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z">
+                                                </path>
+                                            </svg>
+                                        </a>
+                                        
+                                    </div>
+                                    <div class="text-sm ml-4">
+                                        <div class="flex flex-col">
+                                            <div class="w-full  flex-none text-lg font-bold leading-none" *ngIf="profRes.name">Dr. {{profRes.name}}</div>
+                                            <div class="flex-auto  my-1">
+                                                <span class="mr-2 " *ngIf="profRes.designation">{{profRes.designation}}</span><span class=" border-r border-gray-200  max-h-0"></span><span>MBBS, MS</span>
+                                            </div>
+                                            <div class="flex-auto  ">
+                                              <span class="mr-3 " *ngIf="profRes.yearsOfExperience">Experience : {{profRes.yearsOfExperience}} years</span>
+                                              
+                                          </div>
+                                            <div class="flex-auto  ">
+                                                <span class="mr-3 " *ngIf="profRes.address">{{profRes.address}}</span>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                  </div>
+                                  <div class="flex pt-2  text-sm text-gray-500">
+                                            
+                                    <div class="flex-1 inline-flex items-center" >
+                                        <mat-chip-list aria-label="Consultations Available">
+                                           
+                                          <mat-chip color="accent"selected >
+                                                <mat-chip-avatar>
+                                                    <mat-icon>stars</mat-icon>
+                                                </mat-chip-avatar>
+                                             Highly Recommeneded
+                                              </mat-chip>
+                                       
+                                      
+                                            <mat-chip color="accent"selected >
+                                                <mat-chip-avatar>
+                                                    <mat-icon> alarm </mat-icon>
+                                                </mat-chip-avatar>
+                                               Excellent Wait Time
+                                              </mat-chip>
+                                        </mat-chip-list>
+                                       
+                                    </div>
+                                    
+                                </div>
+                                  <div class="flex flex-row items-center mt-2 ">
+                                      
+                                    <div class="flex">
+    
+                                        
+                                        <button class="flex cursor-pointer items-center gap-2  ml-2 rounded-lg bg-blue-500 p-2">
+                                            <label class="cursor-pointer">
+                                                <div class="flex h-5 items-center ">
+                                                    <mat-icon> how_to_reg </mat-icon>
+                                                  </div>
+                                            </label>
+                                            <div class="text-white">In-Person visits</div>
+                                        </button>
+                                        <button class="flex cursor-pointer items-center gap-2 ml-4 rounded-lg bg-blue-500 p-2">
+                                            <label class="cursor-pointer">
+                                              <div class="flex h-5  items-center ">
+                                                <mat-icon> video_call </mat-icon>
+                                              </div>
+                                            </label>
+                                            <div class="text-white">video visits</div>
+                                        </button>
+    
+                                    </div>
+                                    <div class="flex-1 inline-flex  hidden items-center">
+                                        <img class="w-5 h-5" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DVFlQRSBzdmcgIFBVQkxJQyAnLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4nICAnaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkJz48c3ZnIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDY0IDY0IiBoZWlnaHQ9IjY0cHgiIGlkPSJMYXllcl8xIiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCA2NCA2NCIgd2lkdGg9IjY0cHgiIHhtbDpzcGFjZT0icHJlc2VydmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxwYXRoIGQ9Ik0zMiw3LjE3NEMxOC4zMTEsNy4xNzQsNy4xNzQsMTguMzExLDcuMTc0LDMyYzAsMTMuNjg5LDExLjEzNywyNC44MjYsMjQuODI2LDI0LjgyNmMxMy42ODksMCwyNC44MjYtMTEuMTM3LDI0LjgyNi0yNC44MjYgIEM1Ni44MjYsMTguMzExLDQ1LjY4OSw3LjE3NCwzMiw3LjE3NHogTTM4LjE3NCwzMi44NzRoLTQuMDM5YzAsNi40NTMsMCwxNC4zOTgsMCwxNC4zOThoLTUuOTg1YzAsMCwwLTcuODY4LDAtMTQuMzk4aC0yLjg0NXYtNS4wODggIGgyLjg0NXYtMy4yOTFjMC0yLjM1NywxLjEyLTYuMDQsNi4wNC02LjA0bDQuNDMzLDAuMDE3djQuOTM5YzAsMC0yLjY5NSwwLTMuMjE5LDBjLTAuNTI0LDAtMS4yNjgsMC4yNjItMS4yNjgsMS4zODZ2Mi45OWg0LjU2ICBMMzguMTc0LDMyLjg3NHoiLz48L3N2Zz4=">
+                                        <img class="w-5 h-5" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DVFlQRSBzdmcgIFBVQkxJQyAnLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4nICAnaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkJz48c3ZnIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDU2LjY5MyA1Ni42OTMiIGhlaWdodD0iNTYuNjkzcHgiIGlkPSJMYXllcl8xIiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCA1Ni42OTMgNTYuNjkzIiB3aWR0aD0iNTYuNjkzcHgiIHhtbDpzcGFjZT0icHJlc2VydmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxwYXRoIGQ9Ik0yOC4zNDgsNS4xNTdjLTEzLjYsMC0yNC42MjUsMTEuMDI3LTI0LjYyNSwyNC42MjVjMCwxMy42LDExLjAyNSwyNC42MjMsMjQuNjI1LDI0LjYyM2MxMy42LDAsMjQuNjIzLTExLjAyMywyNC42MjMtMjQuNjIzICBDNTIuOTcxLDE2LjE4NCw0MS45NDcsNS4xNTcsMjguMzQ4LDUuMTU3eiBNNDAuNzUyLDI0LjgxN2MwLjAxMywwLjI2NiwwLjAxOCwwLjUzMywwLjAxOCwwLjgwM2MwLDguMjAxLTYuMjQyLDE3LjY1Ni0xNy42NTYsMTcuNjU2ICBjLTMuNTA0LDAtNi43NjctMS4wMjctOS41MTMtMi43ODdjMC40ODYsMC4wNTcsMC45NzksMC4wODYsMS40OCwwLjA4NmMyLjkwOCwwLDUuNTg0LTAuOTkyLDcuNzA3LTIuNjU2ICBjLTIuNzE1LTAuMDUxLTUuMDA2LTEuODQ2LTUuNzk2LTQuMzExYzAuMzc4LDAuMDc0LDAuNzY3LDAuMTExLDEuMTY3LDAuMTExYzAuNTY2LDAsMS4xMTQtMC4wNzQsMS42MzUtMC4yMTcgIGMtMi44NC0wLjU3LTQuOTc5LTMuMDgtNC45NzktNi4wODRjMC0wLjAyNywwLTAuMDUzLDAuMDAxLTAuMDhjMC44MzYsMC40NjUsMS43OTMsMC43NDQsMi44MTEsMC43NzcgIGMtMS42NjYtMS4xMTUtMi43NjEtMy4wMTItMi43NjEtNS4xNjZjMC0xLjEzNywwLjMwNi0yLjIwNCwwLjg0LTMuMTJjMy4wNjEsMy43NTQsNy42MzQsNi4yMjUsMTIuNzkyLDYuNDgzICBjLTAuMTA2LTAuNDUzLTAuMTYxLTAuOTI4LTAuMTYxLTEuNDE0YzAtMy40MjYsMi43NzgtNi4yMDUsNi4yMDYtNi4yMDVjMS43ODUsMCwzLjM5NywwLjc1NCw0LjUyOSwxLjk1OSAgYzEuNDE0LTAuMjc3LDIuNzQyLTAuNzk1LDMuOTQxLTEuNTA2Yy0wLjQ2NSwxLjQ1LTEuNDQ4LDIuNjY2LTIuNzMsMy40MzNjMS4yNTctMC4xNSwyLjQ1My0wLjQ4NCwzLjU2NS0wLjk3NyAgQzQzLjAxOCwyMi44NDksNDEuOTY1LDIzLjk0Miw0MC43NTIsMjQuODE3eiIvPjwvc3ZnPg==">
+                                        <img class="w-5 h-5" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DVFlQRSBzdmcgIFBVQkxJQyAnLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4nICAnaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkJz48c3ZnIGhlaWdodD0iNjdweCIgaWQ9IkxheWVyXzEiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDY3IDY3OyIgdmVyc2lvbj0iMS4xIiB2aWV3Qm94PSIwIDAgNjcgNjciIHdpZHRoPSI2N3B4IiB4bWw6c3BhY2U9InByZXNlcnZlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48cGF0aCBkPSJNNTAuODM3LDQ4LjEzN1YzNi40MjVjMC02LjI3NS0zLjM1LTkuMTk1LTcuODE2LTkuMTk1ICBjLTMuNjA0LDAtNS4yMTksMS45ODMtNi4xMTksMy4zNzRWMjcuNzFoLTYuNzljMC4wOSwxLjkxNywwLDIwLjQyNywwLDIwLjQyN2g2Ljc5VjM2LjcyOWMwLTAuNjA5LDAuMDQ0LTEuMjE5LDAuMjI0LTEuNjU1ICBjMC40OS0xLjIyLDEuNjA3LTIuNDgzLDMuNDgyLTIuNDgzYzIuNDU4LDAsMy40NCwxLjg3MywzLjQ0LDQuNjE4djEwLjkyOUg1MC44Mzd6IE0yMi45NTksMjQuOTIyYzIuMzY3LDAsMy44NDItMS41NywzLjg0Mi0zLjUzMSAgYy0wLjA0NC0yLjAwMy0xLjQ3NS0zLjUyOC0zLjc5Ny0zLjUyOHMtMy44NDEsMS41MjQtMy44NDEsMy41MjhjMCwxLjk2MSwxLjQ3NCwzLjUzMSwzLjc1MywzLjUzMUgyMi45NTl6IE0zNCw2NCAgQzE3LjQzMiw2NCw0LDUwLjU2OCw0LDM0QzQsMTcuNDMxLDE3LjQzMiw0LDM0LDRzMzAsMTMuNDMxLDMwLDMwQzY0LDUwLjU2OCw1MC41NjgsNjQsMzQsNjR6IE0yNi4zNTQsNDguMTM3VjI3LjcxaC02Ljc4OXYyMC40MjcgIEgyNi4zNTR6IiBzdHlsZT0iZmlsbC1ydWxlOmV2ZW5vZGQ7Y2xpcC1ydWxlOmV2ZW5vZGQ7ZmlsbDojMDEwMTAxOyIvPjwvc3ZnPg==">
+        
+                                    </div>
+                                    </div>
+                                 
+                              
+                               
+                               </ng-container>
+                              
+                            <mat-tab-group mat-align-tabs="start" >
+                                <mat-tab label="About">
+                                    <section class=" body-font">
+                                        <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 ">What Patients Are Saying</h1>
+                                        <div class="container flex flex-wrap mx-auto items-center">
+                                           
+                                          <div class="w-1/2 md:pr-12 md:py-8 md:border-r md:border-b-0  md:mb-0 ">
+                                         
+                                          <!-- <div class="w-20 h-20 rounded-full inline-flex items-center justify-center ">
+                                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10" viewBox="0 0 24 24">
+                                              <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
+                                              <circle cx="12" cy="7" r="4"></circle>
+                                            </svg>
+                                          </div> -->
+                                          <div class="flex flex-col items-center text-center justify-center">
+                                            <h2 class="font-medium title-font mt-4 text-lg" *ngIf="profRes.averageRating">Overall Rating</h2>
+                                            <div class="w-12 text-4xl rounded text-center mb-1" *ngIf="profRes.averageRating">{{profRes.averageRating}}</div>
+                                            <div class="flex justify-center items-center">
+                                                <div class="flex items-center mt-2 mb-1">
+                                                  <!-- <div class="flex justify-center items-center">
+                                                    <div class="flex items-center mt-2 mb-4">
+                                                    </div>
+                                                  </div> -->
+                                                  <app-wid-star-rating  [rating]="profRes.averageRating"  ></app-wid-star-rating>
+
+                                                  <!-- <svg class="mx-1 w-4 h-4 fill-current text-yellow-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                                                  <svg class="mx-1 w-4 h-4 fill-current text-yellow-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                                                  <svg class="mx-1 w-4 h-4 fill-current text-yellow-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                                                  <svg class="mx-1 w-4 h-4 fill-current text-yellow-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                                                  <svg class="mx-1 w-4 h-4 fill-current text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg> -->
+                                                </div>
+                                              </div>
+                                            <p class="text-base ">{{profRes.noOfReviews}} reviews</p>
+                                          </div>
+                                          
+                                          </div>
+                                          <div class="flex flex-col w-1/2 md:pl-12"  >
+                                            <!-- <h2 class="title-font  tracking-wider text-sm">Awards</h2> -->
+                                            <div class="list-none -mb-1" *ngFor="let tag of profRes.reviewTags; let i = index">
+                                     
+                                              <li class="" >
+                                              
+                                                <div class="p-2">
+                                                    <div class="inline-flex items-center ">
+                                                      <span class="inline-flex bg-{{color[i%4]}}-600 text-white rounded-full h-6 px-3 justify-center items-center "><mat-icon> stars </mat-icon></span>
+                                                      <div class="  cursor-pointer items-center gap-2  ml-2 rounded-lg  p-2">
+                                                  
+                                                        <span>{{tag.tagName}}</span>
+                                                       
+                                                    </div>
+                                                    </div>
+                                                    <div class=" text-xs">{{tag.description}}</div>
+                                                  </div>
+                                                
+                                              </li>
+                                            
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </section>
+                                      <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 ">Checks At</h1>
+                                      <mat-card class="shadow-lg" *ngFor="let clinic of profRes.associatedClinics; let i = index">
+                                        
+                                        <div class="flex flex-col max-w-full rounded-lg  overflow-hidden md:flex-row my-10">
+                                            <div class="md:flex items-center md:justify-between justify-center w-full ">
+                                             
+                                              <div class=" md:py-0">
+                                                <h2 class="text-2xl font-bold text-purple-400"> {{clinic.clinicName}}</h2>
+
+                                                <div class="flex justify-between">
+                                               
+                                                  
+                                                 </div>
+                                           
+                                                <div class="flex items-center mt-2 mb-1">
+                                                    <svg class="mx-1 w-4 h-4 fill-current text-yellow-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                                                    <svg class="mx-1 w-4 h-4 fill-current text-yellow-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                                                    <svg class="mx-1 w-4 h-4 fill-current text-yellow-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                                                    <svg class="mx-1 w-4 h-4 fill-current text-yellow-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                                                    <svg class="mx-1 w-4 h-4 fill-current text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                                                   {{clinic.review}}
+                                                    <span class="text-sm font-bold text-purple-400 ml-2 " *ngFor="let tag of clinic.tagReceived">
+                                                      tag                                            </span>
+                                                </div>
+                                                <p class="mt-1">
+                                                   {{clinic.location}}                                             </p>
+                                                    <span class="text-sm  text-blue-400 ">
+                                                      Get directions                                             </span>
+                                                  
+                                              </div>
+                                              
+                                              <div class="flex flex-wrap sm:px-1 md:px-0 md:py-0 text-base md:text-sm ml-2">
+                                         
+                                           <ng-container *ngIf="!isMobileOrTabView"  >
+                                            <span *ngFor="let sched of clinic.schedule">
+                                              <div class="w-full">{{sched.from}} to {{sched.to}}</div>
+                                              <div class="w-full">{{sched.duration}}</div>
+                                             
+                                            </span>
+                                            
+                                           </ng-container>
+                                           <div class="flow-root w-full" *ngIf="isMobileOrTabView">  
+                                           <span  *ngFor="let sched of clinic.schedule" >
+                                            <div class="w-full"> <p>{{sched.from}} to {{sched.to}} {{sched.duration}}</p></div>
+                                           
+                                           </span> 
+                                            <p class="float-left">Consultation Fees: Rs {{clinic.fees}}</p> 
+                                            <p class="float-right"><button mat-flat-button color="primary" class="float-right ">
+                                                <span class="text-white">
+                                                Book
+                                            </span>
+                                        </button></p>
+                                        </div>
+                                          
+                                     
+                                                  <!-- <div class="w-2/2 sm:w-2/2 md:w-1/2 lg:w-2/2 xl:w-1/2 mb-2  h-12">&check; Lorem ipsum dolor sit amet</div>
+                                                  <div class="w-2/2 sm:w-2/2 md:w-1/2 lg:w-2/2 xl:w-1/2 mb-2  h-12">&check; Lorem ipsum dolor sit amet</div>
+                                                  <div class="w-2/2 sm:w-2/2 md:w-1/2 lg:w-2/2 xl:w-1/2 mb-2  h-12">&check; Lorem ipsum dolor sit amet</div>
+                                                  <div class="w-2/2 sm:w-2/2 md:w-1/2 lg:w-2/2 xl:w-1/2 mb-2  h-12">&check; Lorem ipsum dolor sit amet</div>
+                                                  <div class="w-2/2 sm:w-2/2 md:w-1/2 lg:w-2/2 xl:w-1/2 mb-2  h-12">&check; Lorem ipsum dolor sit amet</div>
+                                                  <div class="w-2/2 sm:w-2/2 md:w-1/2 lg:w-2/2 xl:w-1/2 mb-2  h-12">&check; Lorem ipsum dolor sit amet</div> -->
+                                                </div>
+                                            </div>
+                                            <div class="flex flex-col items-center justify-center  md:py-0 md:w-1/3 " *ngIf="!isMobileOrTabView">
+                                              <div class="md:flex flex-col items-center justify-center  ">
+                                                <div>
+                                                  <h2 class=" text-6xl md:text-5x1  font-bold  ">
+                                                  Rs {{clinic.fees}}
+                                                  </h2>
+                                                 
+                                                </div>
+                                                <button mat-flat-button color="primary" class=""><span class="text-white">
+                                                    Book
+                                                </span></button>
+                                              
+                                              </div>
+                                             
+                                              <!-- <div class="flex items-center justify-center w-full  ">
+                                                <a
+                                                  href="#"
+                                                  target="_blank"
+                                                  class="mx-auto lg:mx-0 hover:underline bg-black text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg"
+                                                >
+                                                  Get started
+                                                </a>
+                                                
+                                                
+                                              </div>
+                                              <a href="#" class="text-sm text-gray-700 underline">Terms and conditions</a> -->
+                                              
+                                            </div>
+                                            <div class="example-button-row">
+                                              <button class="mr-3 float-right" (click)="openPracticeEdit('practiceDetails',i)"><mat-icon>create</mat-icon></button>
+
+                                            </div>
+                                          </div>
+                                      </mat-card>
+                                      <mat-card class="w-full mt-2 shadow" *ngIf="profRes.languages">
+                                       <div class="flex justify-between">
+                                        <h3>LANGUAGES SPOKEN</h3>
+                                        <div class="example-button-row">
+                                          <button class="mr-3" (click)="openDialog('language')"><mat-icon>create</mat-icon></button>
+                                          <!-- <button (click)="goToProductDetails('languages')"> <mat-icon>create</mat-icon></button> -->
+                                         
+                                         
+                                        </div>
+                                        
+                                       </div>
+                                        <mat-chip-list aria-label="languages spoken" >
+                                            <mat-chip *ngFor="let language of profRes.languages">{{language}}</mat-chip>
+                                        </mat-chip-list>
+                                  </mat-card>
+                                      <mat-card class="w-full mt-2 shadow" *ngIf="profRes.specialization">
+                                        <div class="flex justify-between">
+                                          <h3>SPECIALIZATIONS</h3>
+                                          <div class="example-button-row">
+                                            <button class="mr-3" (click)="openDialog('specialization')" ><mat-icon>create</mat-icon></button>
+                                            <!-- <button (click)="goToProductDetails('specialization')"> <mat-icon>create</mat-icon></button> -->
+                                           
+                                           
+                                          </div>
+                                          
+                                         </div>
+                                     
+                                      <ul class="" *ngFor="let spec of profRes.specialization">
+                                          <li class="">     <div class="">
+                                              <div class="inline-flex items-center ">
+                                                <span class="inline-flex  rounded-full h-6 px-3 justify-center items-center "><i class='fas fa-stethoscope'></i></span>
+                                                <div class="  cursor-pointer items-center gap-2  ml-2 rounded-lg  p-2">
+                                            
+                                                  <span> {{spec}}</span>
+                                                  <!-- <div class=" text-xs font-light">National Institute of Mental Health and Neurosciences (NIMHANS)</div> -->
+                                              </div>
+                                              
+                                              </div>
+                                              
+                                            </div></li>
+                                          
+                                          <!-- <li class="p-3">List Item 3</li>
+                                          <li class="p-3">List Item 4</li> -->
+                                      </ul>
+                                  </mat-card>
+                                  <mat-card class="w-full mt-2 shadow" *ngIf="profRes.experience">
+                                    
+                                    <div class="flex justify-between">
+                                      <h3>EXPERIENCE</h3>
+                                      <div class="example-button-row">
+                                        <button class="mr-3" (click)="openDialog('experience')"><mat-icon>add_circle_outline</mat-icon></button>
+                                        <button (click)="goToProductDetails('experience')"> <mat-icon>create</mat-icon></button>
+                                       
+                                       
+                                      </div>
+                                      
+                                     </div>
+                                  <ul class="" *ngFor="let exp of profRes.experience">
+                                      <li class="">     <div class="">
+                                          <div class="inline-flex items-center ">
+                                            <span class="inline-flex  rounded-full h-6 px-3 justify-center items-center "><i class='fas fa-clinic-medical'></i></span>
+                                            <div class="  cursor-pointer items-center gap-2  ml-2 rounded-lg  p-2">
+                                        
+                                              <span>{{exp.title}}, {{exp.startDate}}-{{exp.endDate||'present'}}</span>
+                                              <div class=" text-xs font-normal">{{exp.comapanyName}}</div>
+                                              <div class=" text-xs font-medium">{{exp.description}}</div>
+                                          </div>
+                                          
+                                          </div>
+                                          
+                                        </div></li>
+                                    
+                                    
+                                  </ul>
+                              </mat-card>
+                              <mat-card class="w-full mt-2 shadow" >
+
+                              
+                                <div class="flex justify-between">
+                                  <h3>AWARDS & PUBLICATIONS</h3>
+                                  <div class="example-button-row">
+                                    <button class="mr-3" (click)="openDialog('awards')"><mat-icon>add_circle_outline</mat-icon></button>
+                                    <button (click)="goToProductDetails('awardsAndPublications')"> <mat-icon>create</mat-icon></button>
+                                   
+                                   
+                                  </div>
+                                  
+                                 </div>
+                              <ul class="" *ngFor="let award of profRes.awardsAndPublications">
+                                  <li class="">     <div class="">
+                                      <div class="inline-flex items-center ">
+                                        <span class="inline-flex  rounded-full h-6 px-3 justify-center items-center "><i class='fas fa-award fa-lg'></i></span>
+                                        <div class="  cursor-pointer items-center gap-2  ml-2 rounded-lg  p-2">
+                                    
+                                          <span>{{award.awardName}}, {{award.place}}, {{award.date}}</span>
+                                          <!-- <div class=" text-xs font-light">National Institute of Mental Health and Neurosciences (NIMHANS)</div> -->
+                                      </div>
+                                      
+                                      </div>
+                                      
+                                    </div></li>
+                                  
+                              </ul>
+                          </mat-card>
+                        
+                                      <mat-card class="w-full mt-2 shadow" *ngIf="profRes.education">
+                                         
+                                          <div class="flex justify-between">
+                                            <h3>EDUCATIONAL QUALIFICATIONS</h3>
+                                            <div class="example-button-row">
+                                              <button class="mr-3" (click)="openDialog('education')"><mat-icon>add_circle_outline</mat-icon></button>
+                                              <button (click)="goToProductDetails('education')"> <mat-icon>create</mat-icon></button>
+                                             
+                                             
+                                            </div>
+                                            
+                                           </div>
+                                        <ul  *ngFor="let qual of profRes.education" >
+                                            <li >    
+                                               <div >
+                                                <div class="inline-flex items-center ">
+                                                  <span class="inline-flex  rounded-full h-6 px-3 justify-center items-center "><mat-icon>school</mat-icon></span>
+                                                  <div class="  cursor-pointer items-center gap-2  ml-2 rounded-lg  p-2">
+                                              
+                                                    <span> {{qual.degree}}-{{qual.studyField}}-{{qual.startDate}}:{{qual.endDate}}</span>
+                                                    <div class=" text-xs font-normal">{{qual.institution}}</div>
+                                                    <div class=" text-xs font-normal">{{qual.description}}</div>
+                                                </div>
+                                                
+                                                </div>
+                                                
+                                              </div></li>
+                                              
+                                            <!-- <li class="p-3">List Item 3</li>
+                                            <li class="p-3">List Item 4</li> -->
+                                        </ul>
+                                    </mat-card>
+
+                                </mat-tab>
+                                <mat-tab label="Location">Content 2</mat-tab>
+                              
+                                <mat-tab label="Reviews" >
+                              
+        
+                                  <app-app-review></app-app-review>
+
+
+
+
+                                 
+                
+                                </mat-tab>
+                                <mat-tab label="Posts">Content 3</mat-tab>
+                             
+                              </mat-tab-group>
+                              
+                            </div>
+                        </div>
+                    </div>
+                <!-- <div class="bg-white font-semibold text-center rounded-3xl border shadow-lg p-10">
+                    <img class="mb-3 w-32 h-32 rounded-full shadow-lg mx-auto" src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt="product designer">
+                    <h1 class="text-lg text-gray-700"> John Doe </h1>
+                    <h3 class="text-sm text-gray-400 "> Creative Director </h3>
+                    <p class="text-xs text-gray-400 mt-4"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                    <button class="bg-indigo-600 px-8 py-2 mt-8 rounded-3xl text-gray-100 font-semibold uppercase tracking-wide">Hire Me</button>
+                  </div> -->
+
+
+                  <!-- code for textbox -->
+                  <!-- <div class="flex">
+                    <div class="m-2 w-10 py-1">
+                        <img class="inline-block h-10 w-10 rounded-full" src="https://pbs.twimg.com/profile_images/1121328878142853120/e-rpjoJi_bigger.png" alt="" />
+                    </div>
+                    <div class="flex-1 px-2 pt-2 mt-2">
+                        <textarea class=" bg-transparent text-gray-400 font-medium text-lg w-full" rows="2" cols="50" placeholder="What's happening?"></textarea>
+                    </div>                    
+                </div> -->
+
+                    <!-- code for the icons below text-box -->
+               
+            </div>
+        
+        
+        </div>
+        </div>
+     </div>
+     <div class="w-full  fixed-content md:w-2/5 lg:w-2/5 xl:w-1/4 px-2 mb-4" *ngIf="!isMobileOrTabView">
+        <div class="border text-sm text-grey-dark flex items-center justify-center">
+         <!-- <p>full / half / quarter</p> -->
+         <div class="container flex flex-wrap mx-auto">
+             <div class="w-full  p-2 rounded ">
+              <wid-app-bookin-slot [doctorId]="userId"></wid-app-bookin-slot>
+              
+                
+             </div>
+             
+             <div class="w-full p-2 rounded ">
+                <div class="w-full bg-white rounded-lg shadow-lg ">
+                    <ul class="divide-y-2 divide-gray-100">
+                        <li class="p-3 hover:bg-blue-600 hover:text-blue-200">
+                            List Item 1
+                        </li>
+                        <li class="p-3 hover:bg-blue-600 hover:text-blue-200">
+                            List Item 2
+                        </li>
+                        <li class="p-3 hover:bg-blue-600 hover:text-blue-200">
+                            List Item 3
+                        </li>
+                        <li class="p-3 hover:bg-blue-600 hover:text-blue-200">
+                            List Item 4
+                        </li>
+                    </ul>
+                </div>
+             </div>
+             <div class="w-full p-2 rounded ">
+                 <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=989&q=80"
+                     alt="image">
+             </div>
+             <div class="w-full p-2 rounded ">
+                 <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=989&q=80"
+                     alt="image">
+             </div>
+            
+         </div>
+        
+           <!-- <mat-card>
+          
+                 <div class="bg-white font-semibold text-center rounded-3xl border shadow-lg p-10 max-w-xs">
+                   <img class="mb-3 w-32 h-32 rounded-full shadow-lg mx-auto" src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt="product designer">
+                   <h1 class="text-lg text-gray-700"> John Doe </h1>
+                   <h3 class="text-sm text-gray-400 "> Creative Director </h3>
+                   <p class="text-xs text-gray-400 mt-4"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                   <button class="bg-indigo-600 px-8 py-2 mt-8 rounded-3xl text-gray-100 font-semibold uppercase tracking-wide">Hire Me</button>
+                 </div>
+               
+           </mat-card> -->
+        
+        </div>
+     </div>
+
+ </div>
+ 
+  <!-- <div class="text-center w-full">
+   
+    <mat-spinner class="display-inline-block" [diameter]="60" [strokeWidth]="3"></mat-spinner>
+  </div> -->
+
+
+
+
+  <!-- Code for DialogBox -->
+
+
+  <ng-template  #dialogTemplate>
+    <div class="relative  w-full h-full md:h-auto">
+      <div class="flex justify-between items-start p-4 rounded-t ">
+        <h3 class="text-xl font-semibold ">
+            Add {{dialogHeader}}
+        </h3>
+        <button type="button" mat-dialog-close class=" bg-transparent   rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" >
+            <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+            <span class="sr-only">Close modal</span>
+        </button>
+        
+    </div>
+  <!-- Modal toggle -->
+  <div class=" space-y-6">
+    <div class="relative w-full mb-3">
+      <label class="block uppercase text-xs mb-2" htmlfor="grid-password">
+        {{dialogHeader}}
+      </label>
+      <input type="text" class="border-0 px-3 py-3 text-gray-700 rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" value="">
+    </div>
+  </div>
+  <!-- Main modal -->
+      
+  <div class="flex flex-row-reverse p-6 space-x-2 rounded-b dark:border-gray-600">
+    <button mat-flat-button mat-dialog-close class="text-gray-500 sm:w-1/5 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none ">Cancel</button>
+    <button mat-flat-button [mat-dialog-close]="true" color="primary" class="sm:w-1/5" style="margin-right:4% ;">Add</button>
+  
+  
+  </div>
+    </div>
+
+  </ng-template>
+
+  <ng-template #dialogTemplate2>
+    <div id="authentication-modal" tabindex="-1" class=" overflow-y-auto overflow-x-hidden  top-0 right-0  z-50 w-full md:inset-0 h-modal md:h-full">
+      <div class="relative w-full  h-full md:h-auto">
+          <!-- Modal content -->
+          <div class="relative  rounded-lg shadow ">
+              <button type="button" class="absolute top-3 right-2.5 bg-transparent   rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white" data-modal-toggle="authentication-modal">
+                  <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                  <span class="sr-only">Close modal</span>
+              </button>
+              <div class="py-6  lg:px-8">
+                  <h3 class="mb-4 text-xl font-medium ">Sign in to our platform</h3>
+                  <form class="space-y-6" action="#">
+                      <div>
+                          <label for="email" class="block mb-2 text-sm font-medium">Your email</label>
+                          <input type="email" name="email" id="email" class="bg-gray-50 border  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="name@company.com" required>
+                      </div>
+                      <div>
+                          <label for="password" class="block mb-2 text-sm font-medium ">Your password</label>
+                          <input type="password" name="password" id="password" placeholder="••••••••" class="border border-gray-300  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
+                      </div>
+                      <div class="flex justify-between">
+                          <div class="flex items-start">
+                              <div class="flex items-center h-5">
+                                  <input id="remember" type="checkbox" value="" class="w-4 h-4 bg-gray-50 rounded border border-gray-300 focus:ring-3 focus:ring-blue-300 dark:bg-gray-600 dark:border-gray-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800" required>
+                              </div>
+                              <label for="remember" class="ml-2 text-sm font-medium ">Remember me</label>
+                          </div>
+                          <a href="#" class="text-sm text-blue-700 hover:underline dark:text-blue-500">Lost Password?</a>
+                      </div>
+                      <button type="submit" class="w-full  bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Login to your account</button>
+                      <div class="text-sm font-medium  ">
+                          Not registered? <a href="#" class=" hover:underline">Create account</a>
+                      </div>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div> 
+  </ng-template>
+<!-- 
+  Bottom sheet code -->
+ 
+
+  <ng-template let-bottomSheetRef="bottomSheetRef" #templateBottomSheet class="h-screen">
+    <wid-app-bookin-slot [doctorId]="userId"></wid-app-bookin-slot>
+    <!-- <ul>
+      <li>Link 1</li>
+      <li>Link 2</li>
+      <li>Link 1</li>
+      <li>Link 2</li>
+      <li>Link 3</li>
+      <li>Link 1</li>
+      <li>Link 2</li>
+      <li>Link 3</li>
+      <li>Link 1</li>
+      <li>Link 2</li>
+      <li>Link 3</li>
+      <li>Link 3</li>
+      <li></li>
+    </ul> -->
+    
+  </ng-template>

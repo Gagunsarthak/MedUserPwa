@@ -1,0 +1,12 @@
+.mat-radio-button ~ .mat-radio-button {
+    margin-left: 4px;
+  }
+  .mat-chip{
+    background-color: mat-color(primary) !important;
+   color: mat-contrast(primary,50) !important;
+  }
+  .mat-chip.mat-standard-chip {
+    margin-right: 1%;
+    background-color: rgb(24, 228, 196);
+  //  color: rgba(0,0,0,.87);
+}
