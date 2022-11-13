@@ -24,6 +24,7 @@
     "@angular/service-worker": "^14.2.10",
     "@schematics/angular": "^14.2.9",
     "@types/grecaptcha": "^3.0.4",
+    "@zxing/ngx-scanner": "^3.6.2",
     "chart.js": "^3.9.1",
     "firebase": "^9.10.0",
     "http-server": "^14.1.1",

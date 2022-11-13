@@ -1,11 +1,12 @@
 import { AfterViewInit, ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatTabChangeEvent } from '@angular/material/tabs';
-import { NgxScannerQrcodeComponent } from 'ngx-scanner-qrcode';
+// import { NgxScannerQrcodeComponent } from 'ngx-scanner-qrcode';
+import { BehaviorSubject } from 'rxjs';
 import { QueueFetchStatus } from 'src/app/constants/misc.constant';
 import { SignupService } from 'src/routes/app-signup/services/signup.service';
 import { QueueServiceService } from '../services/queue-service.service';
-
+import { BarcodeFormat } from '@zxing/library';
 @Component({
   selector: 'app-app-live-queue',
   templateUrl: './app-live-queue.component.html',
@@ -17,7 +18,42 @@ export class AppLiveQueueComponent implements OnInit,AfterViewInit {
  pinGenerated=false
  pin=''
  alertMsg="Scan the QR code present in the CLINIC to generate PIN"
-   @ViewChild('action', { static: false }) action: NgxScannerQrcodeComponent;
+// ngxscan new
+availableDevices: MediaDeviceInfo[];
+currentDevice: MediaDeviceInfo ;
+
+formatsEnabled: BarcodeFormat[] = [
+  BarcodeFormat.CODE_128,
+  BarcodeFormat.DATA_MATRIX,
+  BarcodeFormat.EAN_13,
+  BarcodeFormat.QR_CODE,
+];
+
+hasDevices: boolean;
+hasPermission: boolean;
+
+qrResultString: string;
+
+torchEnabled = false;
+torchAvailable$ = new BehaviorSubject<boolean>(false);
+tryHarder = false;
+onCodeResult(resultString: string) {
+  console.log("on code result called")
+  this.qrResultString = resultString;
+}
+onTorchCompatible(isCompatible: boolean): void {
+  this.torchAvailable$.next(isCompatible || false);
+}
+onCamerasFound(devices: MediaDeviceInfo[]): void {
+  this.availableDevices = devices;
+  this.hasDevices = Boolean(devices && devices.length);
+}
+onHasPermission(has: boolean) {
+  this.hasPermission = has;
+}
+// ngxscan end
+
+  // @ViewChild('action', { static: false }) action: NgxScannerQrcodeComponent;
   liveQueueData:any[]=[];
   // TODO something this.action
  
@@ -27,20 +63,20 @@ export class AppLiveQueueComponent implements OnInit,AfterViewInit {
     ,private liveQueueServ:QueueServiceService
     ) { }
   ngAfterViewInit(): void {
-    if(this.queueStatus=='started' && this.action){
-      this.action['start']().subscribe((res: boolean) =>  console.log("start" + ': ' + res));
-      console.log("Action data isn ",this.output)
-    }
+    // if(this.queueStatus=='started' && this.action){
+    //   this.action['start']().subscribe((res: boolean) =>  console.log("start" + ': ' + res));
+    //   console.log("Action data isn ",this.output)
+    // }
   }
 generaterandomPin():number{
  return  Math.floor(Math.random() * (9999 - 1000 + 1)) + 1000;
 
 }
   ngOnInit(): void {
-    if(this.queueStatus=='started' && this.action){
-      this.action['start']()
-      console.log("Action data isn ",this.output)
-    }
+    // if(this.queueStatus=='started' && this.action){
+    //   this.action['start']()
+    //   console.log("Action data isn ",this.output)
+    // }
  
   }
   startQueue(){
@@ -48,7 +84,7 @@ generaterandomPin():number{
     this.queueStatus='started'
     this.pinGenerated=false
     this.changeDetector.detectChanges();
-    this.action['start']()
+   // this.action['start']()
    // console.log("Action data isn ",this.output)
   }
   stopQueue(){
@@ -67,34 +103,34 @@ console.log("fetchoutput ",e)
 if(this.pinGenerated && this.pin.length>0){
   return
 }
-if(this.action  ){
-  if( e!=null && e.length>0)
-  this.pinGenerated=true // to be reomoved
-  this.pin=this.generaterandomPin().toString()
-  this.stopCamera()
-  this._snackBar.open("PIN successfully generated", '', {
-    duration: 5000
-  });
-this.alertMsg="Check Live Queue Status"
-  if(this.signUpUser.id){  //here the checks if ita a logged in user is present has to be done and pin generation
-    this.pinGenerated=true 
-    this.pin=this.generaterandomPin().toString()
-    this.alertMsg="Check Live Queue Status "
-this.stopCamera()
-this._snackBar.open("PIN successfully generated !", '', {
-  duration: 3000
-});
-    //create the otp
+// if(this.action  ){
+//   if( e!=null && e.length>0)
+//   this.pinGenerated=true // to be reomoved
+//   this.pin=this.generaterandomPin().toString()
+//   this.stopCamera()
+//   this._snackBar.open("PIN successfully generated", '', {
+//     duration: 5000
+//   });
+// this.alertMsg="Check Live Queue Status"
+//   if(this.signUpUser.id){  //here the checks if ita a logged in user is present has to be done and pin generation
+//     this.pinGenerated=true 
+//     this.pin=this.generaterandomPin().toString()
+//     this.alertMsg="Check Live Queue Status "
+// this.stopCamera()
+// this._snackBar.open("PIN successfully generated !", '', {
+//   duration: 3000
+// });
+//     //create the otp
    
-  }else{
-    // redirect to the live queue page 
-  }
-}
+//   }else{
+//     // redirect to the live queue page 
+//   }
+// }
   }
 
   stopCamera(){
-    if(this.action)
-    this.action['toggleCamera']()
+    // if(this.action)
+    // this.action['toggleCamera']()
 
   }
  tabClick(event:MatTabChangeEvent){

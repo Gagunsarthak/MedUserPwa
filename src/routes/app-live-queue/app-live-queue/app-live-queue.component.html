@@ -99,10 +99,18 @@ pinGenerated: {{pinGenerated}}
                     <!-- <ngx-scanner-qrcode #action="scanner" (event)="fetchOutput($event)" >
                       
                     </ngx-scanner-qrcode> -->
-                    <p class="data">{{ action.data | async }}</p>
+  
+                    <zxing-scanner [torch]="torchEnabled" [(device)]="currentDevice" (scanSuccess)="onCodeResult($event)"
+                    [formats]="formatsEnabled" [tryHarder]="tryHarder" (permissionResponse)="onHasPermission($event)"
+                    (camerasFound)="onCamerasFound($event)" (torchCompatible)="onTorchCompatible($event)"></zxing-scanner>
+                     <div>
+                        <small>Result</small>
+                        <strong>{{ qrResultString }}</strong>
+                      </div>
+                    <!-- <p class="data">{{ action.data | async }}</p>
 
 <!-- Loading -->
-                    <p *ngIf="action.isLoading">⌛ Loading...</p>
+                   
 
 
                    </div>
