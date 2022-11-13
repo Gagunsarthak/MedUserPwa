@@ -6,8 +6,11 @@
 
 import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, HostListener, OnInit, ViewChild, ViewContainerRef } from "@angular/core";
 import { Router, NavigationEnd, NavigationStart, NavigationCancel, NavigationError } from "@angular/router";
+import { SwUpdate, SwPush, UnrecoverableStateEvent, VersionEvent, VersionReadyEvent } from "@angular/service-worker";
 import { delay } from "rxjs";
+import { PUBLIC_VAPID_KEY_OF_SERVER } from "src/app/constants/misc.constant";
 import { ConfigService } from "src/app/services/config.service";
+import { NotificationsService } from "src/app/services/notifications.service";
 import { RootService } from "./root.service";
 
 @Component({
@@ -19,6 +22,7 @@ export class RootComponent implements OnInit, AfterViewInit {
   // constructor(){
   //   console.log("Root component reached")
   // }
+  notificationData: string = '{}';
   @ViewChild('previewContainer', { read: ViewContainerRef, static: true })
   previewContainerViewRef: ViewContainerRef | null = null
   @ViewChild('appUpdateTitle', { static: true })
@@ -40,6 +44,9 @@ public getScreenWidth: any;
   currentRoute: string;
   
   constructor(
+    private updateService: SwUpdate,
+    private notificationService: NotificationsService,
+     private pushService: SwPush,
     private router: Router,
     // public authSvc: AuthKeycloakService,
     public configSvc: ConfigService,
@@ -108,6 +115,19 @@ public getScreenWidth: any;
     this.rootSvc.showNavbarDisplay$.pipe(delay(500)).subscribe(display => {
       this.showNavbar = display
     })
+        //pwa config code starts
+        console.log("Upddate service is ",this.updateService.isEnabled)
+        if (!this.updateService.isEnabled) {
+          console.log('AppComponent.ngOnInit: Service Worker is not enabled');
+          return;
+        }else{
+          console.log('AppComponent.ngOnInit: Service Worker is enabled');
+          this.#handleUpdates();
+          this.#handleNotifications()
+        }
+    
+        
+        //pwa config code ends
   }
   @HostListener('window:resize', ['$event'])
   onWindowResize() {
@@ -165,4 +185,62 @@ public getScreenWidth: any;
   //     }
   //   }
   // }
+  #handleUpdates() {
+    this.updateService.versionUpdates.subscribe((event: VersionEvent) => {
+      console.log(event);
+      alert(event.type);
+      if (
+        event.type === 'VERSION_READY' &&
+        confirm(
+          `New version ${
+            (event as VersionReadyEvent).latestVersion.hash
+          } available. Load New Version?`
+        )
+      ) {
+        window.location.reload();
+      }
+    });
+    // const interval = setInterval(async () => {
+    //   const shouldUpdate = await this.updateService.checkForUpdate();
+    //   alert('Checked for update with result: ' + shouldUpdate);
+    //   if (shouldUpdate) {
+    //     const result = await this.updateService.activateUpdate();
+    //     alert('Activate Update completed with result: ' + result);
+    //     clearInterval(interval);
+    //   }
+    // }, 1000);
+
+    this.updateService.unrecoverable.subscribe(
+      (event: UnrecoverableStateEvent) => {
+        alert('Error reason : ' + event.reason);
+      }
+    );
+  }
+  async #handleNotifications() {
+   try {
+    console.log("Handle Notifications called")
+      const sub = await this.pushService.requestSubscription({
+        serverPublicKey: PUBLIC_VAPID_KEY_OF_SERVER,
+      });
+      this.notificationService.addSubscription(sub);
+      console.log('Subscribed');
+    } catch (err) {
+      console.error('Could not subscribe due to:', err);
+    }
+    this.pushService.messages.subscribe((message) => {
+      console.log("Push Service message is ",message);
+    });
+    this.pushService.notificationClicks.subscribe((message) => {
+      console.log("Push Service notif is ",message);
+    });
+    this.pushService.subscription.subscribe((subscription) => {
+      console.log("Push service subscrip is",subscription);
+    });
+
+   this.snedNotification()
+   }
+snedNotification(){
+  this.notificationService.notifications(this.notificationData);
+  console.log("notification received is ",this.notificationService.notifications(this.notificationData))
+}
 }
