@@ -23,10 +23,10 @@ const routes: Routes = [
     path: 'user-dashboard',
     loadChildren: () => import('../routes/app-user-dashboard/app-user-dashboard.module').then(m => m.AppUserDashboardModule)
   },
-  // {
-  //   path: 'live-queue',
-  //   loadChildren: () => import('../routes/app-live-queue/app-live-queue.module').then(m => m.AppLiveQueueModule)
-  // }
+  {
+    path: 'live-queue',
+    loadChildren: () => import('../routes/app-live-queue/app-live-queue.module').then(m => m.AppLiveQueueModule)
+  }
 ];
 
 @NgModule({

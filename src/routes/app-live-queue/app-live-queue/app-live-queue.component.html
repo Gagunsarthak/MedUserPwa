@@ -96,9 +96,9 @@ pinGenerated: {{pinGenerated}}
                    <div *ngIf="queueStatus=='started' && !pinGenerated" class=" text-center mt-2 font-light text-sm box " style="height: 350px;">
                     <div class="overlay border-r-4 border-l-4 rounded-lg   border-indigo-500" >
                         Scan the QR to generate PIN</div>
-                    <ngx-scanner-qrcode #action="scanner" (event)="fetchOutput($event)" >
+                    <!-- <ngx-scanner-qrcode #action="scanner" (event)="fetchOutput($event)" >
                       
-                    </ngx-scanner-qrcode>
+                    </ngx-scanner-qrcode> -->
                     <p class="data">{{ action.data | async }}</p>
 
 <!-- Loading -->
